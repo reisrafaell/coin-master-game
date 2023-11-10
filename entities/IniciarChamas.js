@@ -1,18 +1,18 @@
-// Defina a classe PlayerFlames
-export class PlayerFlames {
-  constructor(initialPosition) {
+// Defina a classe IniciarChamas
+export class IniciarChamas {
+  constructor(posicaoInicial) {
     this.bulletSpeed = 20
     this.minDistance = 1500
     this.distance = 0
 
-    this.playerFlames = add([
+    this.iniciarChamas = add([
       sprite("player-flames", {
         anim: "burn",
         speed: 0.1,
       }),
       area({ shape: new Rect(vec2(0), 15, 15), collisionIgnore: ["player"] }),
       anchor("center"),
-      pos(initialPosition),
+      pos(posicaoInicial),
       scale(1),
       rotate(),
       state("launch", ["launch", "rotate", "fall"]),
@@ -24,14 +24,14 @@ export class PlayerFlames {
     onUpdate(() => {
       // this.distance += this.bulletSpeed * dt()
       // if (this.distance >= this.minDistance) {
-      //   destroy(this.playerFlames) // Desaparece após atingir a distância mínima
+      //   destroy(this.IniciarChamas) // Desaparece após atingir a distância mínima
       // } else {
-      //   this.playerFlames.move(initialDirection.scale(this.bulletSpeed * dt()))
+      //   this.IniciarChamas.move(initialDirection.scale(this.bulletSpeed * dt()))
       // }
     })
 
     setTimeout(() => {
-      destroy(this.playerFlames)
+      destroy(this.iniciarChamas)
     }, 3000)
   }
 }

@@ -1,4 +1,4 @@
-import { PlayerFlames } from "./PlayerFlames.js"
+import { IniciarChamas } from "./IniciarChamas.js"
 export class Player {
   heightDelta = 0
 
@@ -125,7 +125,7 @@ export class Player {
     const muzzlePosition = this.gameObj.pos.add(this.gameObj.muzzleOffset)
     const initialDirection = this.gameObj.dir
 
-    return new PlayerFlames(muzzlePosition, initialDirection)
+    return new IniciarChamas(muzzlePosition, initialDirection)
   }
 
   respawnPlayer() {
