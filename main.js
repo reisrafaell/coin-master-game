@@ -210,4 +210,4 @@ for (const key in scenes) {
 }
 
 // go("menu")
-go("menu")
+go(3)
