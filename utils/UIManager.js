@@ -1,7 +1,7 @@
 import { bgSoundManager } from "./BGSoundManager.js"
 
 class UI {
-  displayLivesCount(player) {
+  exibirContagemVidas(player) {
     this.livesCountUI = add([
       text(`${player.lives}`, {
         font: "Round",
@@ -19,7 +19,7 @@ class UI {
     ])
   }
 
-  displayCoinCount(player) {
+  exibirContagemMoedas(player) {
     this.coinCountUI = add([
       text(`${player.coins} / ${this.fullCoinCount}`, {
         font: "Round",
@@ -35,7 +35,7 @@ class UI {
     this.coinCountUI.add([sprite("coin-icon"), pos(-60, 0), scale(3), fixed()])
   }
 
-  displayBlinkingUIMessage(content, position) {
+  exibirMenssagemAnimada(content, position) {
     const message = add([
       text(content, { size: 24, font: "Round" }),
       area(),
@@ -68,8 +68,7 @@ class UI {
       message.enterState("flash-up")
     })
   }
-
-  displayMainMenu() {
+  exibirMenuPrincipal() {
     add([sprite("forest-background"), scale(2)])
     add([
       sprite("logo"),
@@ -80,7 +79,7 @@ class UI {
       scale(1),
     ])
 
-    this.displayBlinkingUIMessage(
+    this.exibirMenssagemAnimada(
       "Precione [ Enter ] Para Iniciar o Jogo",
 
       vec2(center().x, center().y + 300)
@@ -91,8 +90,7 @@ class UI {
       go("controls")
     })
   }
-
-  displayControlsMenu() {
+  exibirMeuDeControles() {
     add([sprite("forest-background"), scale(4)])
     add([
       text("Controles", { font: "Round", size: 50 }),
@@ -101,21 +99,21 @@ class UI {
       pos(center().x, center().y - 200),
     ])
 
-    const controlPrompts = add([pos(center().x + 30, center().y)])
-    controlPrompts.add([sprite("up"), pos(0, -80)])
-    controlPrompts.add([sprite("down")])
-    controlPrompts.add([sprite("left"), pos(-80, 0)])
-    controlPrompts.add([sprite("right"), pos(80, 0)])
-    controlPrompts.add([sprite("space"), pos(-200, 0)])
-    controlPrompts.add([
+    const painelControles = add([pos(center().x + 30, center().y)])
+    painelControles.add([sprite("up"), pos(0, -80)])
+    painelControles.add([sprite("down")])
+    painelControles.add([sprite("left"), pos(-80, 0)])
+    painelControles.add([sprite("right"), pos(80, 0)])
+    painelControles.add([sprite("space"), pos(-200, 0)])
+    painelControles.add([
       text("Pular", { font: "Round", size: 32 }),
       pos(-190, 100),
     ])
-    controlPrompts.add([
+    painelControles.add([
       text("Mover", { font: "Round", size: 32 }),
       pos(10, 100),
     ])
-    controlPrompts.add([
+    painelControles.add([
       text("Junte Todas as moedas para vencer o Jogo", {
         font: "Round",
         size: 22,
@@ -123,7 +121,7 @@ class UI {
       pos(-250, 200),
     ])
 
-    this.displayBlinkingUIMessage(
+    this.exibirMenssagemAnimada(
       "Precione [ Enter ] Para Iniciar o Jogo",
       vec2(center().x, center().y + 300)
     )
@@ -134,7 +132,7 @@ class UI {
     })
   }
 
-  displayGameOverScreen() {
+  exibirTelaDeFimDeJogo() {
     bgSoundManager.pauseAllSounds()
     add([rect(1280, 720), color(0, 0, 0)])
     add([
@@ -144,7 +142,7 @@ class UI {
       pos(center()),
     ])
 
-    this.displayBlinkingUIMessage(
+    this.exibirMenssagemAnimada(
       "Precione [ Enter ] Para Jogar Novamente",
       vec2(center().x, center().y + 100)
     )
@@ -155,7 +153,7 @@ class UI {
     })
   }
 
-  displayEndGameScreen() {
+  telaFimDeJogo() {
     bgSoundManager.pauseAllSounds()
     add([rect(1280, 720), color(0, 0, 0)])
     add([
@@ -165,7 +163,7 @@ class UI {
       pos(center()),
     ])
 
-    this.displayBlinkingUIMessage(
+    this.exibirMenssagemAnimada(
       "Precione [ Enter ] para jogar novamente",
       vec2(center().x, center().y + 100)
     )

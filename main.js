@@ -12,9 +12,6 @@ import { level2Layout, level2Mappings } from "./content/level2/level2Layout.js"
 import { Level } from "./utils/Level.js"
 import { Axes } from "./entities/Axes.js"
 import { Saws } from "./entities/Saws.js"
-import { level3Config } from "./content/level3/config.js"
-import { level3Layout, level3Mappings } from "./content/level3/level3Layout.js"
-import { Birds } from "./entities/Birds.js"
 import { load } from "./utils/loader.js"
 import { bgSoundManager } from "./utils/BGSoundManager.js"
 
@@ -31,10 +28,10 @@ load.sounds()
 
 const scenes = {
   menu: () => {
-    UIManager.displayMainMenu()
+    UIManager.exibirMenuPrincipal()
   },
   controls: () => {
-    UIManager.displayControlsMenu()
+    UIManager.exibirMeuDeControles()
   },
   1: () => {
     bgSoundManager.addSound("water-ambience", {
@@ -83,8 +80,8 @@ const scenes = {
     const camera = new Camera()
     camera.attach(player.gameObj, 0, -200, null, 200)
     UIManager.addDarkBg()
-    UIManager.displayLivesCount(player)
-    UIManager.displayCoinCount(player)
+    UIManager.exibirContagemVidas(player)
+    UIManager.exibirContagemMoedas(player)
 
     player.updateLives(UIManager.livesCountUI)
     player.updateCoinCount(UIManager.coinCountUI)
@@ -150,59 +147,14 @@ const scenes = {
     camera.attach(player.gameObj, 0, -200, null, 200)
 
     UIManager.addDarkBg()
-    UIManager.displayLivesCount(player)
-    UIManager.displayCoinCount(player)
+    UIManager.exibirContagemVidas(player)
+    UIManager.exibirContagemMoedas(player)
 
     player.updateLives(UIManager.livesCountUI)
     player.updateCoinCount(UIManager.coinCountUI)
   },
-  3: () => {
-    bgSoundManager.pauseAllSounds()
-    bgSoundManager.addSound("strong-wind", { volume: 0.2, loop: true })
-    bgSoundManager.play("strong-wind")
-    setGravity(level3Config.gravity)
-    const level3 = new Level()
-    level3.drawBackground("sky-background-0")
-    level3.drawBackground("sky-background-1")
-    level3.drawBackground("sky-background-2")
-    level3.drawMapLayout(level3Layout, level3Mappings)
-
-    const player = new Player(
-      level3Config.playerStartPosX,
-      level3Config.playerStartPosY,
-      level3Config.playerSpeed,
-      level3Config.jumpForce,
-      level3Config.nbLives,
-      3,
-      true
-    )
-    player.enablePassthrough()
-    player.enableCoinPickUp()
-    player.enableMobVunerability()
-
-    level3.drawWaves("clouds", "wave")
-
-    const birds = new Birds(
-      level3Config.birdPositions.map((birdPos) => birdPos()),
-      level3Config.birdRanges,
-      level3Config.birdType
-    )
-
-    birds.setMovementPattern()
-    birds.enableMobVunerability()
-
-    const camera = new Camera()
-    camera.attach(player.gameObj, 0, -200, null, 200)
-
-    UIManager.addDarkBg()
-    UIManager.displayLivesCount(player)
-    UIManager.displayCoinCount(player)
-
-    player.updateLives(UIManager.livesCountUI)
-    player.updateCoinCount(UIManager.coinCountUI)
-  },
-  gameover: async () => UIManager.displayGameOverScreen(),
-  end: () => UIManager.displayEndGameScreen(),
+  3: () => UIManager.telaFimDeJogo(),
+  gameover: async () => UIManager.exibirTelaDeFimDeJogo(),
 }
 
 for (const key in scenes) {
@@ -210,4 +162,4 @@ for (const key in scenes) {
 }
 
 // go("menu")
-go(3)
+go(1)
