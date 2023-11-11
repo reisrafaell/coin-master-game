@@ -22,21 +22,21 @@ export const load = {
     })
     loadSprite("logo", "./assets/Logo.png")
     loadSprite("player", "./assets/Player.png", {
-      sliceX: 4,
-      sliceY: 6,
+      sliceX: 8,
+      sliceY: 2,
       anims: {
         idle: {
           from: 0,
-          to: 3,
+          to: 0,
           loop: true,
         },
         run: {
-          from: 4,
+          from: 5,
           to: 7,
           loop: true,
         },
-        "jump-up": 8,
-        "jump-down": 9,
+        "jump-up": 5,
+        "jump-down": 4,
       },
     })
     loadSprite("bridge", "./assets/Bridge.png")

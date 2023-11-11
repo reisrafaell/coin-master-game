@@ -41,10 +41,10 @@ export class Player {
     this.initialY = y
     this.gameObj = add([
       sprite("player", { anim: "idle" }),
-      area({ shape: new Rect(vec2(0, 3), 8, 8) }),
+      area({ shape: new Rect(vec2(0, 3), 47, 47) }),
       anchor("center"),
       pos(x, y),
-      scale(4),
+      scale(1.5),
       body(),
       "player",
       { dir: vec2(1, 0), muzzleOffset: vec2(this.bulletDistance, 0) },

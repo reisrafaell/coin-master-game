@@ -1,4 +1,4 @@
-import { generateMappings } from "../generalMappings.js"
+import { generateMappings } from "../mapaPrincipal.js"
 
 export const level2Mappings = generateMappings("brick")
 
