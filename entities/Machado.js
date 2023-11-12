@@ -1,15 +1,15 @@
-export class Axes {
+export class Machado {
   constructor(positions, swingTimes) {
     this.swingTimes = swingTimes
     this.positions = positions
-    this.axes = []
+    this.machado = []
     for (const position of positions) {
-      this.axes.push(
+      this.machado.push(
         add([
           sprite("axe"),
           area({
             shape: new Rect(vec2(0, 40), 30, 10),
-            collisionIgnore: ["spiders", "flames"],
+            collisionIgnore: ["spiders", "chamas"],
           }),
           pos(position),
           scale(4),
@@ -17,7 +17,7 @@ export class Axes {
           state("swing-left", ["swing-left", "swing-right"]),
           rotate(),
           offscreen(),
-          "axes",
+          "machado",
         ])
       )
     }
@@ -36,15 +36,15 @@ export class Axes {
   }
 
   enableMobVunerability() {
-    for (const axes of this.axes) {
-      axes.onCollide("player-flames", () => {
-        destroy(axes)
+    for (const machado of this.machado) {
+      machado.onCollide("player-chamas", () => {
+        destroy(machado)
         play("swinging-axe")
       })
     }
   }
   setMovementPattern() {
-    for (const [index, axe] of this.axes.entries()) {
+    for (const [index, axe] of this.machado.entries()) {
       const swingLeft = axe.onStateEnter("swing-left", async () => {
         await this.swing(axe, 90, this.swingTimes[index])
         axe.enterState("swing-right")

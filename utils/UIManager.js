@@ -1,4 +1,4 @@
-import { bgSoundManager } from "./BGSoundManager.js"
+import { cmSoundManager } from "./CMSoundManager.js"
 
 class UI {
   exibirContagemVidas(player) {
@@ -133,7 +133,7 @@ class UI {
   }
 
   exibirTelaDeFimDeJogo() {
-    bgSoundManager.pauseAllSounds()
+    cmSoundManager.pauseAllSounds()
     add([rect(1280, 720), color(0, 0, 0)])
     add([
       text("Fim de Jogo!", { size: 50, font: "Round" }),
@@ -154,7 +154,7 @@ class UI {
   }
 
   telaFimDeJogo() {
-    bgSoundManager.pauseAllSounds()
+    cmSoundManager.pauseAllSounds()
     add([rect(1280, 720), color(0, 0, 0)])
     add([
       text("Você ganhou! Obrigado por jogar.", { size: 50, font: "Round" }),

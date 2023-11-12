@@ -1,4 +1,4 @@
-class BGSoundManager {
+class CMSoundManager {
   soundMap = {}
 
   addSound(key, options) {
@@ -23,4 +23,4 @@ class BGSoundManager {
   }
 }
 
-export const bgSoundManager = new BGSoundManager()
+export const cmSoundManager = new CMSoundManager()

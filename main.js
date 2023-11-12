@@ -1,7 +1,7 @@
 import kaboom from "./libs/kaboom.mjs"
 import { Player } from "./entities/Player.js"
-import { Fish } from "./entities/Fish.js"
-import { Flames } from "./entities/Flames.js"
+import { Peixe } from "./entities/Peixe.js"
+import { Chamas } from "./entities/Chamas.js"
 import { Spiders } from "./entities/Spiders.js"
 import { Camera } from "./utils/Camera.js"
 import { level1Layout, level1Mappings } from "./content/level1/level1Layout.js"
@@ -10,10 +10,10 @@ import { level2Config } from "./content/level2/config.js"
 import { UIManager } from "./utils/UIManager.js"
 import { level2Layout, level2Mappings } from "./content/level2/level2Layout.js"
 import { Level } from "./utils/Level.js"
-import { Axes } from "./entities/Axes.js"
-import { Saws } from "./entities/Saws.js"
+import { Machado } from "./entities/Machado.js"
+import { Serra } from "./entities/Serra.js"
 import { load } from "./utils/loader.js"
-import { bgSoundManager } from "./utils/BGSoundManager.js"
+import { cmSoundManager } from "./utils/CMSoundManager.js"
 
 kaboom({
   width: 1280,
@@ -34,11 +34,11 @@ const scenes = {
     UIManager.exibirMeuDeControles()
   },
   1: () => {
-    bgSoundManager.addSound("water-ambience", {
+    cmSoundManager.addSound("water-ambience", {
       volume: 0.02,
       loop: true,
     })
-    bgSoundManager.play("water-ambience")
+    cmSoundManager.play("water-ambience")
     const level1 = new Level()
     setGravity(level1Config.gravity)
     level1.drawBackground("forest-background")
@@ -57,13 +57,13 @@ const scenes = {
     player.enableCoinPickUp()
     player.enableMobVunerability()
 
-    const fish = new Fish(
-      level1Config.fishPositions.map((fishPos) => fishPos()),
-      level1Config.fishAmplitudes,
-      level1Config.fishType
+    const peixe = new Peixe(
+      level1Config.peixePositions.map((peixePos) => peixePos()),
+      level1Config.peixeAmplitudes,
+      level1Config.peixeType
     )
-    fish.setMovementPattern()
-    fish.enableMobVunerability()
+    peixe.setMovementPattern()
+    peixe.enableMobVunerability()
 
     const spiders = new Spiders(
       level1Config.spiderPositions.map((spiderPos) => spiderPos()),
@@ -87,9 +87,9 @@ const scenes = {
     player.updateCoinCount(UIManager.coinCountUI)
   },
   2: () => {
-    bgSoundManager.pauseAllSounds()
-    bgSoundManager.addSound("lava-ambience", { loop: true })
-    bgSoundManager.play("lava-ambience")
+    cmSoundManager.pauseAllSounds()
+    cmSoundManager.addSound("lava-ambience", { loop: true })
+    cmSoundManager.play("lava-ambience")
     setGravity(level2Config.gravity)
 
     const level2 = new Level()
@@ -109,13 +109,13 @@ const scenes = {
     player.enableCoinPickUp()
     player.enableMobVunerability()
 
-    const flames = new Flames(
+    const chamas = new Chamas(
       level2Config.flamePositions.map((flamePos) => flamePos()),
       level2Config.flameAmplitudes,
       level2Config.flameType
     )
-    flames.setMovementPattern()
-    flames.enableMobVunerability()
+    chamas.setMovementPattern()
+    chamas.enableMobVunerability()
 
     const spiders = new Spiders(
       level2Config.spiderPositions.map((spiderPos) => spiderPos()),
@@ -127,19 +127,19 @@ const scenes = {
     spiders.enablePassthrough()
     spiders.enableMobVunerability()
 
-    const axes = new Axes(
-      level2Config.axesPositions.map((axePos) => axePos()),
-      level2Config.axesSwingTimes
+    const machado = new Machado(
+      level2Config.machadoPositions.map((machadoPos) => machadoPos()),
+      level2Config.machadoSwingTimes
     )
-    axes.setMovementPattern()
-    axes.enableMobVunerability()
+    machado.setMovementPattern()
+    machado.enableMobVunerability()
 
-    const saws = new Saws(
+    const serra = new Serra(
       level2Config.sawPositions.map((sawPos) => sawPos()),
       level2Config.sawRanges
     )
-    saws.rotate()
-    saws.enableMobVunerability()
+    serra.rotate()
+    serra.enableMobVunerability()
 
     level2.drawWaves("lava", "wave")
 
@@ -162,4 +162,4 @@ for (const key in scenes) {
 }
 
 // go("menu")
-go(1)
+go(2)

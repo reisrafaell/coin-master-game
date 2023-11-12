@@ -145,13 +145,13 @@ export class Player {
       play("hit", { speed: 1.5 })
       context.respawnPlayer()
     }
-    this.gameObj.onCollide("fish", () => hitAndRespawn(this))
+    this.gameObj.onCollide("peixe", () => hitAndRespawn(this))
     this.gameObj.onCollide("spiders", () => hitAndRespawn(this))
-    this.gameObj.onCollide("flames", () => hitAndRespawn(this))
-    this.gameObj.onCollide("axes", () => hitAndRespawn(this))
-    this.gameObj.onCollide("saws", () => hitAndRespawn(this))
-    this.gameObj.onCollide("birds", () => hitAndRespawn(this))
-    this.gameObj.onCollide("player-flames", () => hitAndRespawn(this))
+    this.gameObj.onCollide("chamas", () => hitAndRespawn(this))
+    this.gameObj.onCollide("machado", () => hitAndRespawn(this))
+    this.gameObj.onCollide("serra", () => hitAndRespawn(this))
+    this.gameObj.onCollide("passaro", () => hitAndRespawn(this))
+    this.gameObj.onCollide("player-chamas", () => hitAndRespawn(this))
   }
 
   update() {

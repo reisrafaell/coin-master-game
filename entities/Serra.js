@@ -1,10 +1,10 @@
-export class Saws {
+export class Serra {
   constructor(positions, ranges) {
     this.positions = positions
     this.ranges = ranges
-    this.saws = []
+    this.serra = []
     for (const position of this.positions) {
-      this.saws.push(
+      this.serra.push(
         add([
           sprite("saw"),
           area(),
@@ -14,22 +14,22 @@ export class Saws {
           rotate(),
           state("rotate-left", ["rotate-left", "rotate-right"]),
           offscreen(),
-          "saws",
+          "serra",
         ])
       )
     }
   }
   enableMobVunerability() {
-    for (const saws of this.saws) {
-      saws.onCollide("player-flames", () => {
-        destroy(saws)
+    for (const serra of this.serra) {
+      serra.onCollide("player-chamas", () => {
+        destroy(serra)
         play("swinging-axe")
-        play("saw", { volume: 0 })
+        play("serra", { volume: 0 })
       })
     }
   }
   rotate() {
-    for (const [index, saw] of this.saws.entries()) {
+    for (const [index, saw] of this.serra.entries()) {
       const rotateLeft = saw.onStateEnter("rotate-left", async () => {
         if (!saw.isOffScreen()) play("saw", { volume: 0.6, seek: 10 })
         await Promise.all([

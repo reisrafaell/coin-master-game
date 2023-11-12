@@ -31,13 +31,13 @@ export const level2Config = {
   spiderAmplitudes: [300, 150, 150, 300, 300],
   spiderSpeeds: [2, 1, 1, 2, 2],
   spiderType: 2,
-  axesPositions: [
+  machadoPositions: [
     () => vec2(2100, -50),
     () => vec2(7000, 10),
     () => vec2(7300, 10),
     () => vec2(7600, 10),
   ],
-  axesSwingTimes: [1, 2, 3, 2],
+  machadoSwingTimes: [1, 2, 3, 2],
   sawPositions: [() => vec2(8000, 350), () => vec2(9000, 350)],
   sawRanges: [300, 500],
 }

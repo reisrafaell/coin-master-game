@@ -13,7 +13,7 @@ export const load = {
     loadSprite("coin-icon", "./assets/Coins_Ui.png")
     loadSprite("star-icon", "./assets/Stars_Ui.png")
     loadSprite("coin", "./assets/Coin.png")
-    loadSprite("player-flames", "./assets/flames.png", {
+    loadSprite("player-chamas", "./assets/flames.png", {
       sliceX: 9,
       sliceY: 1,
       anims: {
@@ -105,14 +105,14 @@ export const load = {
         },
       },
     })
-    loadSprite("fish-1", "./assets/Fish_1.png", {
+    loadSprite("peixe-1", "./assets/Peixe_1.png", {
       sliceX: 2,
       sliceY: 1,
       anims: {
         swim: { from: 0, to: 1, loop: true },
       },
     })
-    loadSprite("fish-2", "./assets/Fish_2.png", {
+    loadSprite("peixe-2", "./assets/Peixe_2.png", {
       sliceX: 2,
       sliceY: 1,
       anims: {

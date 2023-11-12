@@ -6,7 +6,7 @@ export class IniciarChamas {
     this.distance = 0
 
     this.iniciarChamas = add([
-      sprite("player-flames", {
+      sprite("player-chamas", {
         anim: "burn",
         speed: 0.1,
       }),
@@ -17,7 +17,7 @@ export class IniciarChamas {
       rotate(),
       state("launch", ["launch", "rotate", "fall"]),
       offscreen(),
-      "player-flames",
+      "player-chamas",
     ])
 
     // Use onUpdate para controlar o movimento da chama

@@ -1,9 +1,9 @@
-export class Birds {
+export class Passaro {
   constructor(positions, ranges, type) {
     this.ranges = ranges
-    this.birds = []
+    this.passaro = []
     for (const position of positions) {
-      this.birds.push(
+      this.passaro.push(
         add([
           sprite(`bird-${type}`, { anim: "fly" }),
           area({ shape: new Rect(vec2(0), 10, 10) }),
@@ -18,7 +18,7 @@ export class Birds {
             "dive-attack-right",
           ]),
           offscreen(),
-          "birds",
+          "passaro",
         ])
       )
     }
@@ -44,15 +44,15 @@ export class Birds {
     )
   }
   enableMobVunerability() {
-    for (const birds of this.birds) {
-      birds.onCollide("player-flames", () => {
-        destroy(birds)
+    for (const passaro of this.passaro) {
+      passaro.onCollide("player-chamas", () => {
+        destroy(passaro)
         play("swinging-axe")
       })
     }
   }
   setMovementPattern() {
-    for (const [index, bird] of this.birds.entries()) {
+    for (const [index, bird] of this.passaro.entries()) {
       const flyLeft = bird.onStateEnter("fly-left", async () => {
         bird.flipX = false
         await this.fly(bird, -this.ranges[index], 0.5)
