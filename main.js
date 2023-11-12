@@ -41,7 +41,7 @@ const scenes = {
     bgSoundManager.play("water-ambience")
     const level1 = new Level()
     setGravity(level1Config.gravity)
-    level1.drawBackground("forest-background")
+    level1.drawBackground("bg-principal")
     level1.drawMapLayout(level1Layout, level1Mappings)
 
     const player = new Player(
@@ -79,12 +79,11 @@ const scenes = {
 
     const camera = new Camera()
     camera.attach(player.gameObj, 0, -200, null, 200)
-    UIManager.addDarkBg()
     UIManager.exibirContagemVidas(player)
     UIManager.exibirContagemMoedas(player)
 
-    player.updateLives(UIManager.livesCountUI)
-    player.updateCoinCount(UIManager.coinCountUI)
+    player.updateLives(UIManager.contagemVidasUI)
+    player.updateCoinCount(UIManager.contagemMoedasUI)
   },
   2: () => {
     bgSoundManager.pauseAllSounds()
@@ -146,12 +145,11 @@ const scenes = {
     const camera = new Camera()
     camera.attach(player.gameObj, 0, -200, null, 200)
 
-    UIManager.addDarkBg()
     UIManager.exibirContagemVidas(player)
     UIManager.exibirContagemMoedas(player)
 
-    player.updateLives(UIManager.livesCountUI)
-    player.updateCoinCount(UIManager.coinCountUI)
+    player.updateLives(UIManager.contagemVidasUI)
+    player.updateCoinCount(UIManager.contagemMoedasUI)
   },
   3: () => UIManager.telaFimDeJogo(),
   gameover: async () => UIManager.exibirTelaDeFimDeJogo(),
@@ -162,4 +160,4 @@ for (const key in scenes) {
 }
 
 // go("menu")
-go(1)
+go("menu")

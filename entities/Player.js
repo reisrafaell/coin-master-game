@@ -27,7 +27,7 @@ export class Player {
   ) {
     this.isInTerminalScene = isInTerminalScene
     this.currentLevelScene = currentLevelScene
-    this.makePlayer(posX, posY)
+    this.contruirJogador(posX, posY)
     this.speed = speed
     this.jumpForce = jumpForce
     this.lives = nbLives
@@ -36,7 +36,7 @@ export class Player {
     this.update()
   }
 
-  makePlayer(x, y) {
+  contruirJogador(x, y) {
     this.initialX = x
     this.initialY = y
     this.gameObj = add([
@@ -91,7 +91,6 @@ export class Player {
     onKeyDown("x", () => {
       if (this.gameObj.paused) return
       this.shoot()
-      // play("shoot-sound");
     })
     onKeyDown("space", () => {
       if (this.gameObj.paused) return
@@ -122,10 +121,10 @@ export class Player {
   }
 
   shoot() {
-    const muzzlePosition = this.gameObj.pos.add(this.gameObj.muzzleOffset)
-    const initialDirection = this.gameObj.dir
+    const heroiPosition = this.gameObj.pos.add(this.gameObj.muzzleOffset)
+    const direcaoInicial = this.gameObj.dir
 
-    return new IniciarChamas(muzzlePosition, initialDirection)
+    return new IniciarChamas(heroiPosition, direcaoInicial)
   }
 
   respawnPlayer() {
@@ -151,7 +150,7 @@ export class Player {
     this.gameObj.onCollide("axes", () => hitAndRespawn(this))
     this.gameObj.onCollide("saws", () => hitAndRespawn(this))
     this.gameObj.onCollide("birds", () => hitAndRespawn(this))
-    this.gameObj.onCollide("player-flames", () => hitAndRespawn(this))
+    this.gameObj.onCollide("chamas-jogador", () => hitAndRespawn(this))
   }
 
   update() {
@@ -191,16 +190,16 @@ export class Player {
     })
   }
 
-  updateLives(livesCountUI) {
+  updateLives(contagemVidasUI) {
     onUpdate(() => {
-      livesCountUI.text = `${this.lives}`
+      contagemVidasUI.text = `${this.lives}`
     })
   }
 
-  updateCoinCount(coinCountUI) {
+  updateCoinCount(contagemMoedasUI) {
     onUpdate(() => {
-      coinCountUI.text = `${this.coins} / ${coinCountUI.fullCoinCount}`
-      if (this.coins === coinCountUI.fullCoinCount) {
+      contagemMoedasUI.text = `${this.coins} / ${contagemMoedasUI.contagemTotalMoedas}`
+      if (this.coins === contagemMoedasUI.contagemTotalMoedas) {
         go(this.isInTerminalScene ? "end" : this.currentLevelScene + 1)
       }
     })

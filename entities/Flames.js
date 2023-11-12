@@ -20,7 +20,7 @@ export class Flames {
   }
   enableMobVunerability() {
     for (const flames of this.flames) {
-      flames.onCollide("player-flames", () => {
+      flames.onCollide("chamas-jogador", () => {
         destroy(flames)
         play("swinging-axe")
         play("fireball", { volume: 0 })

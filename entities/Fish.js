@@ -58,7 +58,7 @@ export class Fish {
 
   enableMobVunerability() {
     for (const fish of this.fish) {
-      fish.onCollide("player-flames", () => {
+      fish.onCollide("chamas-jogador", () => {
         destroy(fish)
         play("swinging-axe")
       })

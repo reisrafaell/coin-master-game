@@ -45,7 +45,7 @@ export class Birds {
   }
   enableMobVunerability() {
     for (const birds of this.birds) {
-      birds.onCollide("player-flames", () => {
+      birds.onCollide("chamas-jogador", () => {
         destroy(birds)
         play("swinging-axe")
       })

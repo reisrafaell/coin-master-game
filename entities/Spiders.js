@@ -87,7 +87,7 @@ export class Spiders {
 
   enableMobVunerability() {
     for (const spider of this.spiders) {
-      spider.onCollide("player-flames", () => {
+      spider.onCollide("chamas-jogador", () => {
         destroy(spider)
         play("swinging-axe")
         play("spider-attack", { volume: 0 })

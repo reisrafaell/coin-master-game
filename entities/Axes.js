@@ -37,7 +37,7 @@ export class Axes {
 
   enableMobVunerability() {
     for (const axes of this.axes) {
-      axes.onCollide("player-flames", () => {
+      axes.onCollide("chamas-jogador", () => {
         destroy(axes)
         play("swinging-axe")
       })

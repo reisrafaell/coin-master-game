@@ -9,11 +9,11 @@ export const load = {
     loadSprite("left", "./assets/Arrow_Left_Key_Dark.png")
     loadSprite("right", "./assets/Arrow_Right_Key_Dark.png")
     loadSprite("space", "./assets/Space_Key_Dark.png")
-    loadSprite("bullet", "./assets/bullet.png")
+    loadSprite("tecla-x", "./assets/tecla-x.png")
     loadSprite("coin-icon", "./assets/Coins_Ui.png")
     loadSprite("star-icon", "./assets/Stars_Ui.png")
     loadSprite("coin", "./assets/Coin.png")
-    loadSprite("player-flames", "./assets/flames.png", {
+    loadSprite("chamas-jogador", "./assets/flames.png", {
       sliceX: 9,
       sliceY: 1,
       anims: {
@@ -56,8 +56,8 @@ export const load = {
         idle: 0,
       },
     })
-    loadSprite("forest-background", "./assets/Forest_Background_0.jpg")
-    loadSprite("grass-tileset", "./assets/Grass_Tileset.png", {
+    loadSprite("bg-principal", "./assets/bg-principal.png")
+    loadSprite("grass-tileset", "./assets/bloco-cinza-2.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -72,7 +72,7 @@ export const load = {
         "mr-2": 8,
       },
     })
-    loadSprite("grass-oneway-tileset", "./assets/Grass_Oneway.png", {
+    loadSprite("grass-oneway-tileset", "./assets/bloco-cinza.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -186,12 +186,7 @@ export const load = {
     })
     loadSprite("axe", "./assets/Axe_Trap.png")
     loadSprite("saw", "./assets/Circular_Saw.png")
-
-    loadSprite("sky-background-0", "./assets/Sky_Background_0.png")
-    loadSprite("sky-background-1", "./assets/Sky_Background_1.png")
-    loadSprite("sky-background-2", "./assets/Sky_Background_2.png")
-
-    loadSprite("rock-tileset", "./assets/Grass_Rock_Tileset.png", {
+    loadSprite("rock-tileset", "./assets/bloco-cinza-2.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -206,7 +201,7 @@ export const load = {
         "mr-2": 8,
       },
     })
-    loadSprite("rock-oneway-tileset", "./assets/Grass_Rock_Oneway.png", {
+    loadSprite("rock-oneway-tileset", "./assets/bloco-cinza.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -235,30 +230,6 @@ export const load = {
           from: 7,
           to: 0,
           speed: 16,
-          loop: true,
-        },
-      },
-    })
-    loadSprite("bird-1", "./assets/Bird_1.png", {
-      sliceX: 3,
-      sliceY: 1,
-      anims: {
-        fly: {
-          from: 0,
-          to: 2,
-          speed: 9,
-          loop: true,
-        },
-      },
-    })
-    loadSprite("bird-2", "./assets/Bird_2.png", {
-      sliceX: 3,
-      sliceY: 1,
-      anims: {
-        fly: {
-          from: 0,
-          to: 2,
-          speed: 9,
           loop: true,
         },
       },

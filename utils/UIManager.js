@@ -2,41 +2,46 @@ import { bgSoundManager } from "./BGSoundManager.js"
 
 class UI {
   exibirContagemVidas(player) {
-    this.livesCountUI = add([
+    this.contagemVidasUI = add([
       text(`${player.lives}`, {
         font: "Round",
         size: 50,
       }),
       fixed(),
-      pos(70, 10),
+      pos(70, 58),
     ])
 
-    this.livesCountUI.add([
+    this.contagemVidasUI.add([
       sprite("star-icon"),
-      pos(-60, -5),
+      pos(-60, -8),
       scale(3),
       fixed(),
     ])
   }
 
   exibirContagemMoedas(player) {
-    this.coinCountUI = add([
-      text(`${player.coins} / ${this.fullCoinCount}`, {
+    this.contagemMoedasUI = add([
+      text(`${player.coins} / ${this.contagemTotalMoedas}`, {
         font: "Round",
         size: 50,
       }),
       {
-        fullCoinCount: get("coin", { recursive: true }).length,
+        contagemTotalMoedas: get("coin", { recursive: true }).length,
       },
       fixed(),
-      pos(70, 70),
+      pos(70, 120),
     ])
 
-    this.coinCountUI.add([sprite("coin-icon"), pos(-60, 0), scale(3), fixed()])
+    this.contagemMoedasUI.add([
+      sprite("coin-icon"),
+      pos(-60, 0),
+      scale(3),
+      fixed(),
+    ])
   }
 
   exibirMenssagemAnimada(content, position) {
-    const message = add([
+    const mensagem = add([
       text(content, { size: 24, font: "Round" }),
       area(),
       color(255, 98, 0),
@@ -46,30 +51,30 @@ class UI {
       state("flash-up", ["flash-up", "flash-down"]),
     ])
 
-    message.onStateEnter("flash-up", async () => {
+    mensagem.onStateEnter("flash-up", async () => {
       await tween(
-        message.opacity,
+        mensagem.opacity,
         0,
         0.5,
-        (opacity) => (message.opacity = opacity),
+        (opacity) => (mensagem.opacity = opacity),
         easings.linear
       )
-      message.enterState("flash-down")
+      mensagem.enterState("flash-down")
     })
 
-    message.onStateEnter("flash-down", async () => {
+    mensagem.onStateEnter("flash-down", async () => {
       await tween(
-        message.opacity,
+        mensagem.opacity,
         1,
         0.5,
-        (opacity) => (message.opacity = opacity),
+        (opacity) => (mensagem.opacity = opacity),
         easings.linear
       )
-      message.enterState("flash-up")
+      mensagem.enterState("flash-up")
     })
   }
   exibirMenuPrincipal() {
-    add([sprite("forest-background"), scale(2)])
+    add([sprite("bg-principal"), scale(1)])
     add([
       sprite("logo"),
       fixed(),
@@ -91,7 +96,7 @@ class UI {
     })
   }
   exibirMeuDeControles() {
-    add([sprite("forest-background"), scale(4)])
+    add([sprite("bg-principal"), scale(1)])
     add([
       text("Controles", { font: "Round", size: 50 }),
       area(),
@@ -105,9 +110,14 @@ class UI {
     painelControles.add([sprite("left"), pos(-80, 0)])
     painelControles.add([sprite("right"), pos(80, 0)])
     painelControles.add([sprite("space"), pos(-200, 0)])
+    painelControles.add([sprite("tecla-x"), pos(-400, 25)], scale(0.1))
     painelControles.add([
       text("Pular", { font: "Round", size: 32 }),
       pos(-190, 100),
+    ])
+    painelControles.add([
+      text("Atirar Chama", { font: "Round", size: 32 }),
+      pos(-490, 100),
     ])
     painelControles.add([
       text("Mover", { font: "Round", size: 32 }),
@@ -157,7 +167,7 @@ class UI {
     bgSoundManager.pauseAllSounds()
     add([rect(1280, 720), color(0, 0, 0)])
     add([
-      text("Você ganhou! Obrigado por jogar.", { size: 50, font: "Round" }),
+      text("Voce ganhou! Obrigado por jogar.", { size: 50, font: "Round" }),
       area(),
       anchor("center"),
       pos(center()),
@@ -172,10 +182,6 @@ class UI {
       play("confirm-ui")
       go("menu")
     })
-  }
-
-  addDarkBg() {
-    add([rect(270, 130), color(0, 0, 0), fixed()])
   }
 }
 

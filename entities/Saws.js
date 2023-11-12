@@ -21,7 +21,7 @@ export class Saws {
   }
   enableMobVunerability() {
     for (const saws of this.saws) {
-      saws.onCollide("player-flames", () => {
+      saws.onCollide("chamas-jogador", () => {
         destroy(saws)
         play("swinging-axe")
         play("saw", { volume: 0 })
