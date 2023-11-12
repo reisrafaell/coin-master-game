@@ -1,9 +1,9 @@
 export class Chama {
   constructor(positions, amplitudes, type) {
     this.amplitudes = amplitudes
-    this.flames = []
+    this.chamas = []
     for (const position of positions) {
-      this.flames.push(
+      this.chamas.push(
         add([
           sprite(`flame-${type}`, { anim: "burn" }),
           area({ shape: new Rect(vec2(0), 12, 12) }),
@@ -13,22 +13,22 @@ export class Chama {
           rotate(),
           state("launch", ["launch", "rotate", "fall"]),
           offscreen(),
-          "flames",
+          "chamas",
         ])
       )
     }
   }
   habilitarVulnerabilidade() {
-    for (const flames of this.flames) {
-      flames.onCollide("chamas-jogador", () => {
-        destroy(flames)
+    for (const chamas of this.chamas) {
+      chamas.onCollide("chamas-jogador", () => {
+        destroy(chamas)
         play("machado")
         play("fireball", { volume: 0 })
       })
     }
   }
   setPadraoMovimento() {
-    for (const [index, flame] of this.flames.entries()) {
+    for (const [index, flame] of this.chamas.entries()) {
       const launch = flame.onStateEnter("launch", async () => {
         if (!flame.isOffScreen()) play("fireball")
         await tween(

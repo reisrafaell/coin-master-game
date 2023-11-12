@@ -1,6 +1,6 @@
-import { generateMappings } from "../mapaPrincipal.js"
+import { gerarMapas } from "../mapaPrincipal.js"
 
-export const level1Mappings = generateMappings("grass")
+export const level1Mappings = gerarMapas("grass")
 
 export const level1Layout = [
   [

@@ -7,7 +7,7 @@ import { Camera } from "./utils/Camera.js"
 import { level1Layout, level1Mappings } from "./content/level1/level1Layout.js"
 import { level1Config } from "./content/level1/config.js"
 import { level2Config } from "./content/level2/config.js"
-import { UIManager } from "./utils/UIManager.js"
+import { DSGerenciador } from "./utils/DSGerenciador.js"
 import { level2Layout, level2Mappings } from "./content/level2/level2Layout.js"
 import { Level } from "./utils/Level.js"
 import { Machado } from "./entities/Machado.js"
@@ -28,10 +28,10 @@ load.sounds()
 
 const scenes = {
   menu: () => {
-    UIManager.exibirMenuPrincipal()
+    DSGerenciador.exibirMenuPrincipal()
   },
   controls: () => {
-    UIManager.exibirMeuDeControles()
+    DSGerenciador.exibirMeuDeControles()
   },
   1: () => {
     bgSoundManager.addSound("water-ambience", {
@@ -80,11 +80,11 @@ const scenes = {
 
     const camera = new Camera()
     camera.attach(jogador.gameObj, 0, -200, null, 200)
-    UIManager.exibirContagemVidas(jogador)
-    UIManager.exibirContagemMoedas(jogador)
+    DSGerenciador.exibirContagemVidas(jogador)
+    DSGerenciador.exibirContagemMoedas(jogador)
 
-    jogador.atualizarVidas(UIManager.contagemVidasUI)
-    jogador.atualizarMoedas(UIManager.contagemMoedasUI)
+    jogador.atualizarVidas(DSGerenciador.contagemVidasUI)
+    jogador.atualizarMoedas(DSGerenciador.contagemMoedasUI)
   },
   2: () => {
     bgSoundManager.pauseAllSounds()
@@ -148,17 +148,17 @@ const scenes = {
     const camera = new Camera()
     camera.attach(jogador.gameObj, 0, -200, null, 200)
 
-    UIManager.exibirContagemVidas(jogador)
-    UIManager.exibirContagemMoedas(jogador)
+    DSGerenciador.exibirContagemVidas(jogador)
+    DSGerenciador.exibirContagemMoedas(jogador)
 
-    jogador.atualizarVidas(UIManager.contagemVidasUI)
-    jogador.atualizarMoedas(UIManager.contagemMoedasUI)
+    jogador.atualizarVidas(DSGerenciador.contagemVidasUI)
+    jogador.atualizarMoedas(DSGerenciador.contagemMoedasUI)
   },
-  3: () => UIManager.telaFimDeJogo(),
-  gameover: async () => UIManager.exibirTelaDeFimDeJogo(),
+  3: () => DSGerenciador.telaFimDeJogo(),
+  gameover: async () => DSGerenciador.exibirTelaDeFimDeJogo(),
 }
 
 for (const key in scenes) {
   scene(key, scenes[key])
 }
-go(1)
+go(3)

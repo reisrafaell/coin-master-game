@@ -13,6 +13,8 @@ export const load = {
     loadSprite("coin-icon", "./assets/Coins_Ui.png")
     loadSprite("star-icon", "./assets/Stars_Ui.png")
     loadSprite("coin", "./assets/Coin.png")
+    loadSprite("creditos", "./assets/creditos.png")
+    loadSprite("uniacademia-logo", "./assets/uniacademia-logo.png")
     loadSprite("chamas-jogador", "./assets/flames.png", {
       sliceX: 9,
       sliceY: 1,

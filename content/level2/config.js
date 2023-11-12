@@ -6,6 +6,9 @@ export const level2Config = {
   jogadorStartPosX: 1500,
   jogadorStartPosY: 100,
   chamaPositions: [
+    () => vec2(1000, 600),
+    () => vec2(1075, 600),
+    () => vec2(1175, 600),
     () => vec2(2775, 600),
     () => vec2(2875, 600),
     () => vec2(2965, 600),

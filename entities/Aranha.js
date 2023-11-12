@@ -59,7 +59,7 @@ export class Aranha {
         }
       })
 
-      const crawlLeft = aranha.onStateEnter("crawl-left", async () => {
+      const rasteijarEsquerda = aranha.onStateEnter("crawl-left", async () => {
         aranha.flipX = false
 
         await this.crawl(
@@ -79,7 +79,7 @@ export class Aranha {
 
       onSceneLeave(() => {
         idle.cancel()
-        crawlLeft.cancel()
+        rasteijarEsquerda.cancel()
         crawlRight.cancel()
       })
     }

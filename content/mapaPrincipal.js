@@ -1,4 +1,4 @@
-export function generateMappings(tileType) {
+export function gerarMapas(tileType) {
   return {
     0: () => [
       sprite(`${tileType}-peca`, { anim: "tl" }),

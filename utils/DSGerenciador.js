@@ -1,6 +1,6 @@
 import { bgSoundManager } from "./BGSoundManager.js"
 
-class UI {
+class DS {
   exibirContagemVidas(player) {
     this.contagemVidasUI = add([
       text(`${player.lives}`, {
@@ -84,12 +84,27 @@ class UI {
       scale(1),
     ])
 
+    add([
+      sprite("uniacademia-logo"),
+      fixed(),
+      area(),
+      anchor("center"),
+      pos(center().x - 400, center().y - 250),
+      scale(1),
+    ])
+
     this.exibirMenssagemAnimada(
       "Precione [ Enter ] Para Iniciar o Jogo",
 
       vec2(center().x, center().y + 300)
     )
 
+    add([
+      text("Desenvolvimento de Jogos Digitais", { size: 20, font: "Round" }),
+      area(),
+      anchor("center"),
+      pos(center().x + 400, center().y - 300),
+    ])
     onKeyPress("enter", () => {
       play("confirm-ui", { speed: 1.5 })
       go("controls")
@@ -170,13 +185,27 @@ class UI {
       text("Voce ganhou! Obrigado por jogar.", { size: 50, font: "Round" }),
       area(),
       anchor("center"),
-      pos(center()),
+      pos(center().x, center().y - 200),
     ])
 
     this.exibirMenssagemAnimada(
       "Precione [ Enter ] para jogar novamente",
-      vec2(center().x, center().y + 100)
+      vec2(center().x, center().y - 100)
     )
+    add([
+      sprite("creditos"),
+      fixed(),
+      area(),
+      anchor("center"),
+      pos(center().x - 400, center().y + 180),
+      scale(0.8),
+    ])
+    add([
+      text("Voce ganhou! Obrigado por jogar.", { size: 50, font: "Round" }),
+      area(),
+      anchor("center"),
+      pos(center().x, center().y - 200),
+    ])
 
     onKeyPress("enter", () => {
       play("confirm-ui")
@@ -185,4 +214,4 @@ class UI {
   }
 }
 
-export const UIManager = new UI()
+export const DSGerenciador = new DS()
