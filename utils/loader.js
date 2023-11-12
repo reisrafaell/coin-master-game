@@ -10,9 +10,9 @@ export const load = {
     loadSprite("right", "./assets/Arrow_Right_Key_Dark.png")
     loadSprite("space", "./assets/Space_Key_Dark.png")
     loadSprite("tecla-x", "./assets/tecla-x.png")
-    loadSprite("coin-icon", "./assets/Coins_Ui.png")
+    loadSprite("moeda-icon", "./assets/Moeda_Ui.png")
     loadSprite("star-icon", "./assets/Stars_Ui.png")
-    loadSprite("coin", "./assets/Coin.png")
+    loadSprite("moeda", "./assets/Moeda.png")
     loadSprite("creditos", "./assets/creditos.png")
     loadSprite("uniacademia-logo", "./assets/uniacademia-logo.png")
     loadSprite("chamas-jogador", "./assets/flames.png", {

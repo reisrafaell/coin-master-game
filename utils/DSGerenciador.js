@@ -21,19 +21,19 @@ class DS {
 
   exibirContagemMoedas(player) {
     this.contagemMoedasUI = add([
-      text(`${player.coins} / ${this.contagemTotalMoedas}`, {
+      text(`${player.moedas} / ${this.contagemTotalMoedas}`, {
         font: "Round",
         size: 50,
       }),
       {
-        contagemTotalMoedas: get("coin", { recursive: true }).length,
+        contagemTotalMoedas: get("moeda", { recursive: true }).length,
       },
       fixed(),
       pos(70, 120),
     ])
 
     this.contagemMoedasUI.add([
-      sprite("coin-icon"),
+      sprite("moeda-icon"),
       pos(-60, 0),
       scale(3),
       fixed(),

@@ -2,7 +2,7 @@ import kaboom from "./libs/kaboom.mjs"
 import { Jogador } from "./entities/Jogador.js"
 import { Peixe } from "./entities/Peixe.js"
 import { Chama } from "./entities/Chamas.js"
-import { Aranha } from "./entities/Aranha.js"
+import { Aranhas } from "./entities/Aranhas.js"
 import { Camera } from "./utils/Camera.js"
 import { level1Layout, level1Mappings } from "./content/level1/level1Layout.js"
 import { level1Config } from "./content/level1/config.js"
@@ -13,7 +13,7 @@ import { Level } from "./utils/Level.js"
 import { Machado } from "./entities/Machado.js"
 import { Serras } from "./entities/Serras.js"
 import { load } from "./utils/loader.js"
-import { bgSoundManager } from "./utils/BGSoundManager.js"
+import { cmSoundManager } from "./utils/CMSoundManager.js"
 
 kaboom({
   width: 1280,
@@ -34,12 +34,12 @@ const scenes = {
     DSGerenciador.exibirMeuDeControles()
   },
   1: () => {
-    bgSoundManager.addSound("water-ambience", {
+    cmSoundManager.addSound("water-ambience", {
       volume: 0.02,
       loop: true,
     })
-    bgSoundManager.play("water-ambience")
-    bgSoundManager.addSound("musica-fundo", { loop: true, volume: 0.4 })
+    cmSoundManager.play("water-ambience")
+    cmSoundManager.addSound("musica-fundo", { loop: true, volume: 0.4 })
     const level1 = new Level()
     setGravity(level1Config.gravity)
     level1.desenharFundo("bg-principal")
@@ -66,15 +66,15 @@ const scenes = {
     peixe.setPadraoMovimento()
     peixe.habilitarVulnerabilidade()
 
-    const aranha = new Aranha(
+    const aranhas = new Aranhas(
       level1Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
       level1Config.aranhaAmplitudes,
       level1Config.aranhaSpeeds,
       level1Config.aranhaType
     )
-    aranha.setPadraoMovimento()
-    aranha.ativarPassagem()
-    aranha.habilitarVulnerabilidade()
+    aranhas.setPadraoMovimento()
+    aranhas.ativarPassagem()
+    aranhas.habilitarVulnerabilidade()
 
     level1.desenharOndas("water", "wave")
 
@@ -87,11 +87,11 @@ const scenes = {
     jogador.atualizarMoedas(DSGerenciador.contagemMoedasUI)
   },
   2: () => {
-    bgSoundManager.pauseAllSounds()
-    bgSoundManager.addSound("lava-ambience", { loop: true })
-    bgSoundManager.play("lava-ambience")
-    bgSoundManager.addSound("musica-fundo", { loop: true, volume: 0.4 })
-    bgSoundManager.play("musica-fundo")
+    cmSoundManager.pauseAllSounds()
+    cmSoundManager.addSound("lava-ambience", { loop: true })
+    cmSoundManager.play("lava-ambience")
+    cmSoundManager.addSound("musica-fundo", { loop: true, volume: 0.4 })
+    cmSoundManager.play("musica-fundo")
     setGravity(level2Config.gravity)
 
     const level2 = new Level()
@@ -119,15 +119,15 @@ const scenes = {
     chamas.setPadraoMovimento()
     chamas.habilitarVulnerabilidade()
 
-    const aranha = new Aranha(
+    const aranhas = new s(
       level2Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
       level2Config.aranhaAmplitudes,
       level2Config.aranhaSpeeds,
       level2Config.aranhaType
     )
-    aranha.setPadraoMovimento()
-    aranha.ativarPassagem()
-    aranha.habilitarVulnerabilidade()
+    aranhas.setPadraoMovimento()
+    aranhas.ativarPassagem()
+    aranhas.habilitarVulnerabilidade()
 
     const machados = new Machado(
       level2Config.machadosPositions.map((machadoPos) => machadoPos()),

@@ -38,7 +38,7 @@ export class Aranhas {
     )
   }
 
-  setMovementPattern() {
+  setPadraoMovimento() {
     for (const [index, aranha] of this.aranhas.entries()) {
       const idle = aranha.onStateEnter("idle", async (previousState) => {
         if (aranha.currAnim !== "idle") aranha.play("idle")
@@ -85,7 +85,7 @@ export class Aranhas {
     }
   }
 
-  enableMobVunerability() {
+  habilitarVulnerabilidade() {
     for (const aranha of this.aranhas) {
       aranha.onCollide("player-flames", () => {
         destroy(aranha)
@@ -95,7 +95,7 @@ export class Aranhas {
     }
   }
 
-  enablePassthrough() {
+  ativarPassagem() {
     for (const aranha of this.aranhas) {
       aranha.onBeforePhysicsResolve((collision) => {
         if (collision.target.is("passthrough") && aranha.isJumping()) {

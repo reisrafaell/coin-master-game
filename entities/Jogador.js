@@ -64,10 +64,10 @@ export class Jogador {
   }
 
   ativarColetaMoedas() {
-    this.gameObj.onCollide("coin", (coin) => {
-      this.coins++
-      destroy(coin)
-      play("coin")
+    this.gameObj.onCollide("moeda", (moeda) => {
+      this.moedas++
+      destroy(moeda)
+      play("moeda")
     })
   }
 
@@ -198,8 +198,8 @@ export class Jogador {
 
   atualizarMoedas(contagemMoedasUI) {
     onUpdate(() => {
-      contagemMoedasUI.text = `${this.coins} / ${contagemMoedasUI.contagemTotalMoedas}`
-      if (this.coins === contagemMoedasUI.contagemTotalMoedas) {
+      contagemMoedasUI.text = `${this.moedas} / ${contagemMoedasUI.contagemTotalMoedas}`
+      if (this.moedas === contagemMoedasUI.contagemTotalMoedas) {
         go(this.isInTerminalScene ? "end" : this.currentLevelScene + 1)
       }
     })
