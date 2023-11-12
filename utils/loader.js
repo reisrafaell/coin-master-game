@@ -230,5 +230,6 @@ export const load = {
     loadSound("fireball", "./sounds/fireball.wav")
     loadSound("strong-wind", "./sounds/strong-wind.wav")
     loadSound("dive", "./sounds/dive.wav")
+    loadSound("musica-fundo", "./sounds/musica-fundo.wav")
   },
 }

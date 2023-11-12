@@ -2,7 +2,7 @@ export const level2Config = {
   gravity: 1400,
   jogadorSpeed: 400,
   jumpForce: 650,
-  nbLives: 3,
+  nbLives: 7,
   jogadorStartPosX: 1500,
   jogadorStartPosY: 100,
   chamaPositions: [
