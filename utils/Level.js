@@ -1,5 +1,5 @@
 export class Level {
-  drawWaves(type, anim) {
+  desenharOndas(type, anim) {
     let offset = -100
     for (let i = 0; i < 21; i++) {
       add([sprite(type, { anim }), pos(offset, 600), scale(4), fixed()])
@@ -7,7 +7,7 @@ export class Level {
     }
   }
 
-  drawMapLayout(levelLayout, mappings) {
+  desenharMapa(levelLayout, mappings) {
     const layerSettings = {
       tileWidth: 16,
       tileHeight: 12,
@@ -24,7 +24,7 @@ export class Level {
     }
   }
 
-  drawBackground(bgSpriteName) {
-    add([sprite(bgSpriteName), fixed(), scale(4)])
+  desenharFundo(bgSpriteName) {
+    add([sprite(bgSpriteName), fixed(), scale(1)])
   }
 }

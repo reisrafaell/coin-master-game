@@ -9,11 +9,13 @@ export const load = {
     loadSprite("left", "./assets/Arrow_Left_Key_Dark.png")
     loadSprite("right", "./assets/Arrow_Right_Key_Dark.png")
     loadSprite("space", "./assets/Space_Key_Dark.png")
-    loadSprite("bullet", "./assets/bullet.png")
-    loadSprite("moeda-icon", "./assets/Moedas_Ui.png")
+    loadSprite("tecla-x", "./assets/tecla-x.png")
+    loadSprite("coin-icon", "./assets/Coins_Ui.png")
     loadSprite("star-icon", "./assets/Stars_Ui.png")
-    loadSprite("moeda", "./assets/Moeda.png")
-    loadSprite("player-chamas", "./assets/flames.png", {
+    loadSprite("coin", "./assets/Coin.png")
+    loadSprite("creditos", "./assets/creditos.png")
+    loadSprite("uniacademia-logo", "./assets/uniacademia-logo.png")
+    loadSprite("chamas-jogador", "./assets/flames.png", {
       sliceX: 9,
       sliceY: 1,
       anims: {
@@ -40,7 +42,7 @@ export const load = {
       },
     })
     loadSprite("bridge", "./assets/Bridge.png")
-    loadSprite("aranha-1", "./assets/Aranha_1.png", {
+    loadSprite("aranha-1", "./assets/aranha_1.png", {
       sliceX: 3,
       sliceY: 1,
       anims: {
@@ -48,7 +50,7 @@ export const load = {
         idle: 0,
       },
     })
-    loadSprite("aranha-2", "./assets/Aranha_2.png", {
+    loadSprite("aranha-2", "./assets/aranha_2.png", {
       sliceX: 3,
       sliceY: 1,
       anims: {
@@ -56,8 +58,8 @@ export const load = {
         idle: 0,
       },
     })
-    loadSprite("forest-background", "./assets/Forest_Background_0.jpg")
-    loadSprite("grass-tileset", "./assets/Grass_Tileset.png", {
+    loadSprite("bg-principal", "./assets/bg-principal.png")
+    loadSprite("grass-peca", "./assets/bloco-cinza-2.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -72,7 +74,7 @@ export const load = {
         "mr-2": 8,
       },
     })
-    loadSprite("grass-oneway-tileset", "./assets/Grass_Oneway.png", {
+    loadSprite("grass-oneway-peca", "./assets/bloco-cinza.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -119,8 +121,8 @@ export const load = {
         swim: { from: 0, to: 1, loop: true },
       },
     })
-    loadSprite("castle-background", "./assets/Castle_Background_0.png")
-    loadSprite("brick-tileset", "./assets/Brick_Tileset.png", {
+    loadSprite("bg-secundario", "./assets/bg-secundario.jpg")
+    loadSprite("brick-peca", "./assets/tijolo_peca.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -135,7 +137,7 @@ export const load = {
         "mr-2": 8,
       },
     })
-    loadSprite("brick-oneway-tileset", "./assets/Brick_Oneway.png", {
+    loadSprite("brick-oneway-peca", "./assets/tijolo_unico.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -184,14 +186,9 @@ export const load = {
         burn: { from: 0, to: 1, loop: true },
       },
     })
-    loadSprite("axe", "./assets/Axe_Trap.png")
-    loadSprite("saw", "./assets/Circular_Saw.png")
-
-    loadSprite("sky-background-0", "./assets/Sky_Background_0.png")
-    loadSprite("sky-background-1", "./assets/Sky_Background_1.png")
-    loadSprite("sky-background-2", "./assets/Sky_Background_2.png")
-
-    loadSprite("rock-tileset", "./assets/Grass_Rock_Tileset.png", {
+    loadSprite("machado", "./assets/machado.png")
+    loadSprite("serra", "./assets/Circular_serra.png")
+    loadSprite("rock-peca", "./assets/bloco-cinza-2.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -206,7 +203,7 @@ export const load = {
         "mr-2": 8,
       },
     })
-    loadSprite("rock-oneway-tileset", "./assets/Grass_Rock_Oneway.png", {
+    loadSprite("rock-oneway-peca", "./assets/bloco-cinza.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -219,48 +216,6 @@ export const load = {
         "ml-2": 6,
         "mm-2": 7,
         "mr-2": 8,
-      },
-    })
-    loadSprite("clouds", "./assets/Clouds.png", {
-      sliceX: 8,
-      sliceY: 1,
-      anims: {
-        wave: {
-          from: 0,
-          to: 7,
-          speed: 16,
-          loop: true,
-        },
-        "wave-reversed": {
-          from: 7,
-          to: 0,
-          speed: 16,
-          loop: true,
-        },
-      },
-    })
-    loadSprite("bird-1", "./assets/Bird_1.png", {
-      sliceX: 3,
-      sliceY: 1,
-      anims: {
-        fly: {
-          from: 0,
-          to: 2,
-          speed: 9,
-          loop: true,
-        },
-      },
-    })
-    loadSprite("bird-2", "./assets/Bird_2.png", {
-      sliceX: 3,
-      sliceY: 1,
-      anims: {
-        fly: {
-          from: 0,
-          to: 2,
-          speed: 9,
-          loop: true,
-        },
       },
     })
   },
@@ -272,10 +227,11 @@ export const load = {
     loadSound("hit", "./sounds/hit.wav")
     loadSound("lava-ambience", "./sounds/lava.wav")
     loadSound("confirm-ui", "./sounds/confirm-ui.wav")
-    loadSound("balancar-machado", "./sounds/balancar-machado.mp3")
-    loadSound("saw", "./sounds/saw.wav")
+    loadSound("machado", "./sounds/machado.mp3")
+    loadSound("serra", "./sounds/serra.wav")
     loadSound("fireball", "./sounds/fireball.wav")
     loadSound("strong-wind", "./sounds/strong-wind.wav")
     loadSound("dive", "./sounds/dive.wav")
+    loadSound("musica-fundo", "./sounds/musica-fundo.wav")
   },
 }

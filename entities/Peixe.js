@@ -19,7 +19,7 @@ export class Peixe {
     }
   }
 
-  setMovementPattern() {
+  setPadraoMovimento() {
     for (const [index, peixe] of this.peixe.entries()) {
       const launch = peixe.onStateEnter("launch", async () => {
         await tween(
@@ -56,11 +56,11 @@ export class Peixe {
     }
   }
 
-  enableMobVunerability() {
+  habilitarVulnerabilidade() {
     for (const peixe of this.peixe) {
-      peixe.onCollide("player-chamas", () => {
+      peixe.onCollide("chamas-jogador", () => {
         destroy(peixe)
-        play("balancar-machado")
+        play("machado")
       })
     }
   }

@@ -6,29 +6,21 @@ export class IniciarChamas {
     this.distance = 0
 
     this.iniciarChamas = add([
-      sprite("player-chamas", {
+      sprite("chamas-jogador", {
         anim: "burn",
         speed: 0.1,
       }),
-      area({ shape: new Rect(vec2(0), 15, 15), collisionIgnore: ["player"] }),
+      area({ shape: new Rect(vec2(0.5), 30, 50), collisionIgnore: ["player"] }),
       anchor("center"),
       pos(posicaoInicial),
-      scale(1),
+      scale(1.3),
       rotate(),
       state("launch", ["launch", "rotate", "fall"]),
       offscreen(),
-      "player-chamas",
+      "chamas-jogador",
     ])
 
-    // Use onUpdate para controlar o movimento da chama
-    onUpdate(() => {
-      // this.distance += this.bulletSpeed * dt()
-      // if (this.distance >= this.minDistance) {
-      //   destroy(this.IniciarChamas) // Desaparece após atingir a distância mínima
-      // } else {
-      //   this.IniciarChamas.move(initialDirection.scale(this.bulletSpeed * dt()))
-      // }
-    })
+    onUpdate(() => {})
 
     setTimeout(() => {
       destroy(this.iniciarChamas)

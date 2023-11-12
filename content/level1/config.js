@@ -1,10 +1,10 @@
 export const level1Config = {
   gravity: 1400,
-  playerSpeed: 400,
+  jogadorSpeed: 400,
   jumpForce: 650,
   nbLives: 5,
-  playerStartPosX: 1500,
-  playerStartPosY: 100,
+  jogadorStartPosX: 1500,
+  jogadorStartPosY: 100,
   peixePositions: [
     () => vec2(2595, 600),
     () => vec2(2655, 600),

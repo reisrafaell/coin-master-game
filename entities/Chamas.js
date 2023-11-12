@@ -1,4 +1,4 @@
-export class Chamas {
+export class Chama {
   constructor(positions, amplitudes, type) {
     this.amplitudes = amplitudes
     this.chamas = []
@@ -18,16 +18,16 @@ export class Chamas {
       )
     }
   }
-  enableMobVunerability() {
+  habilitarVulnerabilidade() {
     for (const chamas of this.chamas) {
-      chamas.onCollide("player-chamas", () => {
+      chamas.onCollide("chamas-jogador", () => {
         destroy(chamas)
-        play("balancar-machado")
+        play("machado")
         play("fireball", { volume: 0 })
       })
     }
   }
-  setMovementPattern() {
+  setPadraoMovimento() {
     for (const [index, flame] of this.chamas.entries()) {
       const launch = flame.onStateEnter("launch", async () => {
         if (!flame.isOffScreen()) play("fireball")

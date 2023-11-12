@@ -11,7 +11,7 @@ import { UIManager } from "./utils/UIManager.js"
 import { level2Layout, level2Mappings } from "./content/level2/level2Layout.js"
 import { Level } from "./utils/Level.js"
 import { Machado } from "./entities/Machado.js"
-import { Serra } from "./entities/Serra.js"
+import { Serras } from "./entities/Serras.js"
 import { load } from "./utils/loader.js"
 import { cmSoundManager } from "./utils/CMSoundManager.js"
 
@@ -66,10 +66,10 @@ const scenes = {
     peixe.enableMobVunerability()
 
     const aranhas = new Aranhas(
-      level1Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
-      level1Config.aranhaAmplitudes,
-      level1Config.aranhaSpeeds,
-      level1Config.aranhaType
+      level1Config.spiderPositions.map((spiderPos) => spiderPos()),
+      level1Config.spiderAmplitudes,
+      level1Config.spiderSpeeds,
+      level1Config.spiderType
     )
     aranhas.setMovementPattern()
     aranhas.enablePassthrough()
@@ -118,10 +118,10 @@ const scenes = {
     chamas.enableMobVunerability()
 
     const aranhas = new Aranhas(
-      level2Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
-      level2Config.aranhaAmplitudes,
-      level2Config.aranhaSpeeds,
-      level2Config.aranhaType
+      level2Config.spiderPositions.map((spiderPos) => spiderPos()),
+      level2Config.spiderAmplitudes,
+      level2Config.spiderSpeeds,
+      level2Config.spiderType
     )
     aranhas.setMovementPattern()
     aranhas.enablePassthrough()
@@ -134,12 +134,12 @@ const scenes = {
     machado.setMovementPattern()
     machado.enableMobVunerability()
 
-    const serra = new Serra(
+    const serras = new Serras(
       level2Config.sawPositions.map((sawPos) => sawPos()),
       level2Config.sawRanges
     )
-    serra.rotate()
-    serra.enableMobVunerability()
+    serras.rotate()
+    serras.enableMobVunerability()
 
     level2.drawWaves("lava", "wave")
 
