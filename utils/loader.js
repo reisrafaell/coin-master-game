@@ -40,7 +40,7 @@ export const load = {
       },
     })
     loadSprite("bridge", "./assets/Bridge.png")
-    loadSprite("spider-1", "./assets/Spider_1.png", {
+    loadSprite("aranha-1", "./assets/Aranha_1.png", {
       sliceX: 3,
       sliceY: 1,
       anims: {
@@ -48,7 +48,7 @@ export const load = {
         idle: 0,
       },
     })
-    loadSprite("spider-2", "./assets/Spider_2.png", {
+    loadSprite("aranha-2", "./assets/Aranha_2.png", {
       sliceX: 3,
       sliceY: 1,
       anims: {
@@ -268,7 +268,7 @@ export const load = {
     loadSound("jump", "./sounds/jump.wav")
     loadSound("coin", "./sounds/coin.wav")
     loadSound("water-ambience", "./sounds/water-ambience.mp3")
-    loadSound("spider-attack", "./sounds/spider-attack.mp3")
+    loadSound("aranha-attack", "./sounds/aranha-attack.mp3")
     loadSound("hit", "./sounds/hit.wav")
     loadSound("lava-ambience", "./sounds/lava.wav")
     loadSound("confirm-ui", "./sounds/confirm-ui.wav")

@@ -2,7 +2,7 @@ import kaboom from "./libs/kaboom.mjs"
 import { Player } from "./entities/Player.js"
 import { Peixe } from "./entities/Peixe.js"
 import { Chamas } from "./entities/Chamas.js"
-import { Spiders } from "./entities/Spiders.js"
+import { Aranhas } from "./entities/Aranhas.js"
 import { Camera } from "./utils/Camera.js"
 import { level1Layout, level1Mappings } from "./content/level1/level1Layout.js"
 import { level1Config } from "./content/level1/config.js"
@@ -65,15 +65,15 @@ const scenes = {
     peixe.setMovementPattern()
     peixe.enableMobVunerability()
 
-    const spiders = new Spiders(
+    const aranhas = new Aranhas(
       level1Config.spiderPositions.map((spiderPos) => spiderPos()),
       level1Config.spiderAmplitudes,
       level1Config.spiderSpeeds,
       level1Config.spiderType
     )
-    spiders.setMovementPattern()
-    spiders.enablePassthrough()
-    spiders.enableMobVunerability()
+    aranhas.setMovementPattern()
+    aranhas.enablePassthrough()
+    aranhas.enableMobVunerability()
 
     level1.drawWaves("water", "wave")
 
@@ -117,15 +117,15 @@ const scenes = {
     chamas.setMovementPattern()
     chamas.enableMobVunerability()
 
-    const spiders = new Spiders(
+    const aranhas = new Aranhas(
       level2Config.spiderPositions.map((spiderPos) => spiderPos()),
       level2Config.spiderAmplitudes,
       level2Config.spiderSpeeds,
       level2Config.spiderType
     )
-    spiders.setMovementPattern()
-    spiders.enablePassthrough()
-    spiders.enableMobVunerability()
+    aranhas.setMovementPattern()
+    aranhas.enablePassthrough()
+    aranhas.enableMobVunerability()
 
     const machado = new Machado(
       level2Config.machadoPositions.map((machadoPos) => machadoPos()),

@@ -146,7 +146,7 @@ export class Player {
       context.respawnPlayer()
     }
     this.gameObj.onCollide("peixe", () => hitAndRespawn(this))
-    this.gameObj.onCollide("spiders", () => hitAndRespawn(this))
+    this.gameObj.onCollide("aranhas", () => hitAndRespawn(this))
     this.gameObj.onCollide("chamas", () => hitAndRespawn(this))
     this.gameObj.onCollide("machado", () => hitAndRespawn(this))
     this.gameObj.onCollide("serra", () => hitAndRespawn(this))
