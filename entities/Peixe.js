@@ -19,7 +19,7 @@ export class Peixe {
     }
   }
 
-  setMovementPattern() {
+  setPadraoMovimento() {
     for (const [index, fish] of this.fish.entries()) {
       const launch = fish.onStateEnter("launch", async () => {
         await tween(
@@ -56,7 +56,7 @@ export class Peixe {
     }
   }
 
-  enableMobVunerability() {
+  habilitarVulnerabilidade() {
     for (const fish of this.fish) {
       fish.onCollide("chamas-jogador", () => {
         destroy(fish)

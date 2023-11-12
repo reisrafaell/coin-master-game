@@ -42,8 +42,8 @@ const scenes = {
     bgSoundManager.addSound("musica-fundo", { loop: true, volume: 0.4 })
     const level1 = new Level()
     setGravity(level1Config.gravity)
-    level1.drawBackground("bg-principal")
-    level1.drawMapLayout(level1Layout, level1Mappings)
+    level1.desenharFundo("bg-principal")
+    level1.desenharMapa(level1Layout, level1Mappings)
 
     const jogador = new Jogador(
       level1Config.jogadorStartPosX,
@@ -56,15 +56,15 @@ const scenes = {
     )
     jogador.ativarPassagem()
     jogador.ativarColetaMoedas()
-    jogador.enableMobVunerability()
+    jogador.habilitarVulnerabilidade()
 
     const peixe = new Peixe(
       level1Config.peixePositions.map((peixePos) => peixePos()),
       level1Config.peixeAmplitudes,
       level1Config.peixeType
     )
-    peixe.setMovementPattern()
-    peixe.enableMobVunerability()
+    peixe.setPadraoMovimento()
+    peixe.habilitarVulnerabilidade()
 
     const aranha = new Aranha(
       level1Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
@@ -72,19 +72,19 @@ const scenes = {
       level1Config.aranhaSpeeds,
       level1Config.aranhaType
     )
-    aranha.setMovementPattern()
+    aranha.setPadraoMovimento()
     aranha.ativarPassagem()
-    aranha.enableMobVunerability()
+    aranha.habilitarVulnerabilidade()
 
-    level1.drawWaves("water", "wave")
+    level1.desenharOndas("water", "wave")
 
     const camera = new Camera()
     camera.attach(jogador.gameObj, 0, -200, null, 200)
     UIManager.exibirContagemVidas(jogador)
     UIManager.exibirContagemMoedas(jogador)
 
-    jogador.updateLives(UIManager.contagemVidasUI)
-    jogador.updateCoinCount(UIManager.contagemMoedasUI)
+    jogador.atualizarVidas(UIManager.contagemVidasUI)
+    jogador.atualizarMoedas(UIManager.contagemMoedasUI)
   },
   2: () => {
     bgSoundManager.pauseAllSounds()
@@ -95,8 +95,8 @@ const scenes = {
     setGravity(level2Config.gravity)
 
     const level2 = new Level()
-    level2.drawBackground("bg-secundario")
-    level2.drawMapLayout(level2Layout, level2Mappings)
+    level2.desenharFundo("bg-secundario")
+    level2.desenharMapa(level2Layout, level2Mappings)
 
     const jogador = new Jogador(
       level2Config.jogadorStartPosX,
@@ -109,15 +109,15 @@ const scenes = {
     )
     jogador.ativarPassagem()
     jogador.ativarColetaMoedas()
-    jogador.enableMobVunerability()
+    jogador.habilitarVulnerabilidade()
 
     const chamas = new Chama(
       level2Config.chamaPositions.map((chamaPos) => chamaPos()),
       level2Config.chamaAmplitudes,
       level2Config.chamaType
     )
-    chamas.setMovementPattern()
-    chamas.enableMobVunerability()
+    chamas.setPadraoMovimento()
+    chamas.habilitarVulnerabilidade()
 
     const aranha = new Aranha(
       level2Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
@@ -125,25 +125,25 @@ const scenes = {
       level2Config.aranhaSpeeds,
       level2Config.aranhaType
     )
-    aranha.setMovementPattern()
+    aranha.setPadraoMovimento()
     aranha.ativarPassagem()
-    aranha.enableMobVunerability()
+    aranha.habilitarVulnerabilidade()
 
     const machados = new Machado(
       level2Config.machadosPositions.map((machadoPos) => machadoPos()),
       level2Config.machadosSwingTimes
     )
-    machados.setMovementPattern()
-    machados.enableMobVunerability()
+    machados.setPadraoMovimento()
+    machados.habilitarVulnerabilidade()
 
     const serras = new Serras(
       level2Config.serraPositions.map((serraPos) => serraPos()),
       level2Config.serraRanges
     )
     serras.rotate()
-    serras.enableMobVunerability()
+    serras.habilitarVulnerabilidade()
 
-    level2.drawWaves("lava", "wave")
+    level2.desenharOndas("lava", "wave")
 
     const camera = new Camera()
     camera.attach(jogador.gameObj, 0, -200, null, 200)
@@ -151,8 +151,8 @@ const scenes = {
     UIManager.exibirContagemVidas(jogador)
     UIManager.exibirContagemMoedas(jogador)
 
-    jogador.updateLives(UIManager.contagemVidasUI)
-    jogador.updateCoinCount(UIManager.contagemMoedasUI)
+    jogador.atualizarVidas(UIManager.contagemVidasUI)
+    jogador.atualizarMoedas(UIManager.contagemMoedasUI)
   },
   3: () => UIManager.telaFimDeJogo(),
   gameover: async () => UIManager.exibirTelaDeFimDeJogo(),
@@ -161,6 +161,4 @@ const scenes = {
 for (const key in scenes) {
   scene(key, scenes[key])
 }
-
-// go("menu")
 go(1)

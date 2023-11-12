@@ -35,7 +35,7 @@ export class Machado {
     )
   }
 
-  enableMobVunerability() {
+  habilitarVulnerabilidade() {
     for (const machados of this.machados) {
       machados.onCollide("chamas-jogador", () => {
         destroy(machados)
@@ -43,7 +43,7 @@ export class Machado {
       })
     }
   }
-  setMovementPattern() {
+  setPadraoMovimento() {
     for (const [index, machado] of this.machados.entries()) {
       const swingLeft = machado.onStateEnter("swing-left", async () => {
         await this.swing(machado, 90, this.swingTimes[index])

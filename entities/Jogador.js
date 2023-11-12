@@ -139,7 +139,7 @@ export class Jogador {
     go("gameover")
   }
 
-  enableMobVunerability() {
+  habilitarVulnerabilidade() {
     function hitAndRespawn(context) {
       play("hit", { speed: 1.5 })
       context.respawnPlayer()
@@ -190,13 +190,13 @@ export class Jogador {
     })
   }
 
-  updateLives(contagemVidasUI) {
+  atualizarVidas(contagemVidasUI) {
     onUpdate(() => {
       contagemVidasUI.text = `${this.lives}`
     })
   }
 
-  updateCoinCount(contagemMoedasUI) {
+  atualizarMoedas(contagemMoedasUI) {
     onUpdate(() => {
       contagemMoedasUI.text = `${this.coins} / ${contagemMoedasUI.contagemTotalMoedas}`
       if (this.coins === contagemMoedasUI.contagemTotalMoedas) {

@@ -38,7 +38,7 @@ export class Aranha {
     )
   }
 
-  setMovementPattern() {
+  setPadraoMovimento() {
     for (const [index, aranha] of this.aranhas.entries()) {
       const idle = aranha.onStateEnter("idle", async (previousState) => {
         if (aranha.currAnim !== "idle") aranha.play("idle")
@@ -85,7 +85,7 @@ export class Aranha {
     }
   }
 
-  enableMobVunerability() {
+  habilitarVulnerabilidade() {
     for (const aranha of this.aranhas) {
       aranha.onCollide("chamas-jogador", () => {
         destroy(aranha)

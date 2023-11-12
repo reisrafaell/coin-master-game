@@ -19,7 +19,7 @@ export class Serras {
       )
     }
   }
-  enableMobVunerability() {
+  habilitarVulnerabilidade() {
     for (const serras of this.serras) {
       serras.onCollide("chamas-jogador", () => {
         destroy(serras)

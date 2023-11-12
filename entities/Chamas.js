@@ -18,7 +18,7 @@ export class Chama {
       )
     }
   }
-  enableMobVunerability() {
+  habilitarVulnerabilidade() {
     for (const flames of this.flames) {
       flames.onCollide("chamas-jogador", () => {
         destroy(flames)
@@ -27,7 +27,7 @@ export class Chama {
       })
     }
   }
-  setMovementPattern() {
+  setPadraoMovimento() {
     for (const [index, flame] of this.flames.entries()) {
       const launch = flame.onStateEnter("launch", async () => {
         if (!flame.isOffScreen()) play("fireball")

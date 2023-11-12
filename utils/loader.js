@@ -57,7 +57,7 @@ export const load = {
       },
     })
     loadSprite("bg-principal", "./assets/bg-principal.png")
-    loadSprite("grass-tileset", "./assets/bloco-cinza-2.png", {
+    loadSprite("grass-peca", "./assets/bloco-cinza-2.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -72,7 +72,7 @@ export const load = {
         "mr-2": 8,
       },
     })
-    loadSprite("grass-oneway-tileset", "./assets/bloco-cinza.png", {
+    loadSprite("grass-oneway-peca", "./assets/bloco-cinza.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -120,7 +120,7 @@ export const load = {
       },
     })
     loadSprite("bg-secundario", "./assets/bg-secundario.jpg")
-    loadSprite("brick-tileset", "./assets/Brick_Tileset.png", {
+    loadSprite("brick-peca", "./assets/tijolo_peca.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -135,7 +135,7 @@ export const load = {
         "mr-2": 8,
       },
     })
-    loadSprite("brick-oneway-tileset", "./assets/Brick_Oneway.png", {
+    loadSprite("brick-oneway-peca", "./assets/tijolo_unico.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -186,7 +186,7 @@ export const load = {
     })
     loadSprite("machado", "./assets/machado.png")
     loadSprite("serra", "./assets/Circular_serra.png")
-    loadSprite("rock-tileset", "./assets/bloco-cinza-2.png", {
+    loadSprite("rock-peca", "./assets/bloco-cinza-2.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
@@ -201,7 +201,7 @@ export const load = {
         "mr-2": 8,
       },
     })
-    loadSprite("rock-oneway-tileset", "./assets/bloco-cinza.png", {
+    loadSprite("rock-oneway-peca", "./assets/bloco-cinza.png", {
       sliceX: 3,
       sliceY: 4,
       anims: {
