@@ -15,13 +15,13 @@ export const level1Config = {
   ],
   peixeAmplitudes: [300, 500, 400, 500, 900, 800],
   peixeType: 1,
-  spiderPositions: [
+  aranhaPositions: [
     () => vec2(2000, 300),
     () => vec2(2020, 0),
     () => vec2(3200, 200),
     () => vec2(3500, 300),
   ],
-  spiderAmplitudes: [300, 150, 150, 300],
-  spiderSpeeds: [2, 1, 1, 2],
-  spiderType: 1,
+  aranhaAmplitudes: [300, 150, 150, 300],
+  aranhaSpeeds: [2, 1, 1, 2],
+  aranhaType: 1,
 }

@@ -66,10 +66,10 @@ const scenes = {
     peixe.enableMobVunerability()
 
     const aranhas = new Aranhas(
-      level1Config.spiderPositions.map((spiderPos) => spiderPos()),
-      level1Config.spiderAmplitudes,
-      level1Config.spiderSpeeds,
-      level1Config.spiderType
+      level1Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
+      level1Config.aranhaAmplitudes,
+      level1Config.aranhaSpeeds,
+      level1Config.aranhaType
     )
     aranhas.setMovementPattern()
     aranhas.enablePassthrough()
@@ -118,10 +118,10 @@ const scenes = {
     chamas.enableMobVunerability()
 
     const aranhas = new Aranhas(
-      level2Config.spiderPositions.map((spiderPos) => spiderPos()),
-      level2Config.spiderAmplitudes,
-      level2Config.spiderSpeeds,
-      level2Config.spiderType
+      level2Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
+      level2Config.aranhaAmplitudes,
+      level2Config.aranhaSpeeds,
+      level2Config.aranhaType
     )
     aranhas.setMovementPattern()
     aranhas.enablePassthrough()

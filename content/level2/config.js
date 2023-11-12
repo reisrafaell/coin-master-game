@@ -21,16 +21,16 @@ export const level2Config = {
   ],
   flameAmplitudes: [300, 500, 400, 300, 500, 900, 800, 500, 500, 900, 800, 500],
   flameType: 1,
-  spiderPositions: [
+  aranhaPositions: [
     () => vec2(2200, 100),
     () => vec2(1900, 0),
     () => vec2(3200, 200),
     () => vec2(3500, 300),
     () => vec2(4500, 300),
   ],
-  spiderAmplitudes: [300, 150, 150, 300, 300],
-  spiderSpeeds: [2, 1, 1, 2, 2],
-  spiderType: 2,
+  aranhaAmplitudes: [300, 150, 150, 300, 300],
+  aranhaSpeeds: [2, 1, 1, 2, 2],
+  aranhaType: 2,
   machadoPositions: [
     () => vec2(2100, -50),
     () => vec2(7000, 10),
