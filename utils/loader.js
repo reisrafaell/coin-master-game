@@ -10,9 +10,9 @@ export const load = {
     loadSprite("right", "./assets/Arrow_Right_Key_Dark.png")
     loadSprite("space", "./assets/Space_Key_Dark.png")
     loadSprite("bullet", "./assets/bullet.png")
-    loadSprite("coin-icon", "./assets/Coins_Ui.png")
+    loadSprite("moeda-icon", "./assets/Moedas_Ui.png")
     loadSprite("star-icon", "./assets/Stars_Ui.png")
-    loadSprite("coin", "./assets/Coin.png")
+    loadSprite("moeda", "./assets/Moeda.png")
     loadSprite("player-chamas", "./assets/flames.png", {
       sliceX: 9,
       sliceY: 1,
@@ -266,13 +266,13 @@ export const load = {
   },
   sounds: () => {
     loadSound("jump", "./sounds/jump.wav")
-    loadSound("coin", "./sounds/coin.wav")
+    loadSound("moeda", "./sounds/moeda.wav")
     loadSound("water-ambience", "./sounds/water-ambience.mp3")
     loadSound("aranha-attack", "./sounds/aranha-attack.mp3")
     loadSound("hit", "./sounds/hit.wav")
     loadSound("lava-ambience", "./sounds/lava.wav")
     loadSound("confirm-ui", "./sounds/confirm-ui.wav")
-    loadSound("swinging-axe", "./sounds/swinging-axe.mp3")
+    loadSound("balancar-machado", "./sounds/balancar-machado.mp3")
     loadSound("saw", "./sounds/saw.wav")
     loadSound("fireball", "./sounds/fireball.wav")
     loadSound("strong-wind", "./sounds/strong-wind.wav")

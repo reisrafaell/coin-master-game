@@ -54,7 +54,7 @@ const scenes = {
       false
     )
     player.enablePassthrough()
-    player.enableCoinPickUp()
+    player.enableMoedaPickUp()
     player.enableMobVunerability()
 
     const peixe = new Peixe(
@@ -84,7 +84,7 @@ const scenes = {
     UIManager.exibirContagemMoedas(player)
 
     player.updateLives(UIManager.livesCountUI)
-    player.updateCoinCount(UIManager.coinCountUI)
+    player.updateMoedaCount(UIManager.moedaCountUI)
   },
   2: () => {
     cmSoundManager.pauseAllSounds()
@@ -106,7 +106,7 @@ const scenes = {
       false
     )
     player.enablePassthrough()
-    player.enableCoinPickUp()
+    player.enableMoedaPickUp()
     player.enableMobVunerability()
 
     const chamas = new Chamas(
@@ -151,7 +151,7 @@ const scenes = {
     UIManager.exibirContagemMoedas(player)
 
     player.updateLives(UIManager.livesCountUI)
-    player.updateCoinCount(UIManager.coinCountUI)
+    player.updateMoedaCount(UIManager.moedaCountUI)
   },
   3: () => UIManager.telaFimDeJogo(),
   gameover: async () => UIManager.exibirTelaDeFimDeJogo(),

@@ -23,7 +23,7 @@ export class Serra {
     for (const serra of this.serra) {
       serra.onCollide("player-chamas", () => {
         destroy(serra)
-        play("swinging-axe")
+        play("balancar-machado")
         play("serra", { volume: 0 })
       })
     }

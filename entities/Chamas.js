@@ -22,7 +22,7 @@ export class Chamas {
     for (const chamas of this.chamas) {
       chamas.onCollide("player-chamas", () => {
         destroy(chamas)
-        play("swinging-axe")
+        play("balancar-machado")
         play("fireball", { volume: 0 })
       })
     }

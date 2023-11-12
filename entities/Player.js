@@ -10,7 +10,7 @@ export class Player {
 
   lives = 5
 
-  coins = 0
+  moedas = 0
 
   hasJumpedOnce = false
 
@@ -63,11 +63,11 @@ export class Player {
     })
   }
 
-  enableCoinPickUp() {
-    this.gameObj.onCollide("coin", (coin) => {
-      this.coins++
-      destroy(coin)
-      play("coin")
+  enableMoedaPickUp() {
+    this.gameObj.onCollide("moeda", (moeda) => {
+      this.moedas++
+      destroy(moeda)
+      play("moeda")
     })
   }
 
@@ -197,10 +197,10 @@ export class Player {
     })
   }
 
-  updateCoinCount(coinCountUI) {
+  updateMoedaCount(moedaCountUI) {
     onUpdate(() => {
-      coinCountUI.text = `${this.coins} / ${coinCountUI.fullCoinCount}`
-      if (this.coins === coinCountUI.fullCoinCount) {
+      moedaCountUI.text = `${this.moedas} / ${moedaCountUI.fullMoedaCount}`
+      if (this.moedas === moedaCountUI.fullMoedaCount) {
         go(this.isInTerminalScene ? "end" : this.currentLevelScene + 1)
       }
     })

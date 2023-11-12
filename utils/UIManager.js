@@ -20,19 +20,19 @@ class UI {
   }
 
   exibirContagemMoedas(player) {
-    this.coinCountUI = add([
-      text(`${player.coins} / ${this.fullCoinCount}`, {
+    this.moedaCountUI = add([
+      text(`${player.moedas} / ${this.fullMoedaCount}`, {
         font: "Round",
         size: 50,
       }),
       {
-        fullCoinCount: get("coin", { recursive: true }).length,
+        fullMoedaCount: get("moeda", { recursive: true }).length,
       },
       fixed(),
       pos(70, 70),
     ])
 
-    this.coinCountUI.add([sprite("coin-icon"), pos(-60, 0), scale(3), fixed()])
+    this.moedaCountUI.add([sprite("moeda-icon"), pos(-60, 0), scale(3), fixed()])
   }
 
   exibirMenssagemAnimada(content, position) {

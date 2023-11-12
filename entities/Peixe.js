@@ -60,7 +60,7 @@ export class Peixe {
     for (const peixe of this.peixe) {
       peixe.onCollide("player-chamas", () => {
         destroy(peixe)
-        play("swinging-axe")
+        play("balancar-machado")
       })
     }
   }

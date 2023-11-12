@@ -89,7 +89,7 @@ export class Aranhas {
     for (const aranha of this.aranhas) {
       aranha.onCollide("player-flames", () => {
         destroy(aranha)
-        play("swinging-axe")
+        play("balancar-machado")
         play("aranha-attack", { volume: 0 })
       })
     }

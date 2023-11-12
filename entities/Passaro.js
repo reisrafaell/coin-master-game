@@ -47,7 +47,7 @@ export class Passaro {
     for (const passaro of this.passaro) {
       passaro.onCollide("player-chamas", () => {
         destroy(passaro)
-        play("swinging-axe")
+        play("balancar-machado")
       })
     }
   }

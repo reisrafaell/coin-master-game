@@ -24,7 +24,7 @@ export class Machado {
   }
 
   async swing(axe, angle, swingTime) {
-    if (!axe.isOffScreen()) play("swinging-axe")
+    if (!axe.isOffScreen()) play("balancar-machado")
 
     await tween(
       axe.angle,
@@ -39,7 +39,7 @@ export class Machado {
     for (const machado of this.machado) {
       machado.onCollide("player-chamas", () => {
         destroy(machado)
-        play("swinging-axe")
+        play("balancar-machado")
       })
     }
   }

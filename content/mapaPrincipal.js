@@ -68,6 +68,6 @@ export function gerarMapas(tileType) {
       offscreen(),
     ],
     o: () => [sprite("bridge"), area(), body({ isStatic: true }), offscreen()],
-    "@": () => [sprite("coin"), area(), "coin", offscreen()],
+    "@": () => [sprite("moeda"), area(), "moeda", offscreen()],
   }
 }
