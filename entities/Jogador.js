@@ -1,5 +1,5 @@
 import { IniciarChamas } from "./IniciarChamas.js"
-export class Player {
+export class Jogador {
   heightDelta = 0
 
   isMoving = false
@@ -51,7 +51,7 @@ export class Player {
     ])
   }
 
-  enablePassthrough() {
+  ativarPassagem() {
     this.gameObj.onBeforePhysicsResolve((collision) => {
       if (collision.target.is("passthrough") && this.gameObj.isJumping()) {
         collision.preventResolution()
@@ -63,7 +63,7 @@ export class Player {
     })
   }
 
-  enableCoinPickUp() {
+  ativarColetaMoedas() {
     this.gameObj.onCollide("coin", (coin) => {
       this.coins++
       destroy(coin)
@@ -145,10 +145,10 @@ export class Player {
       context.respawnPlayer()
     }
     this.gameObj.onCollide("fish", () => hitAndRespawn(this))
-    this.gameObj.onCollide("spiders", () => hitAndRespawn(this))
+    this.gameObj.onCollide("aranhas", () => hitAndRespawn(this))
     this.gameObj.onCollide("flames", () => hitAndRespawn(this))
-    this.gameObj.onCollide("axes", () => hitAndRespawn(this))
-    this.gameObj.onCollide("saws", () => hitAndRespawn(this))
+    this.gameObj.onCollide("machados", () => hitAndRespawn(this))
+    this.gameObj.onCollide("serras", () => hitAndRespawn(this))
     this.gameObj.onCollide("birds", () => hitAndRespawn(this))
     this.gameObj.onCollide("chamas-jogador", () => hitAndRespawn(this))
   }

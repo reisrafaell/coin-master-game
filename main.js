@@ -1,8 +1,8 @@
 import kaboom from "./libs/kaboom.mjs"
-import { Player } from "./entities/Player.js"
-import { Fish } from "./entities/Fish.js"
-import { Flames } from "./entities/Flames.js"
-import { Spiders } from "./entities/Spiders.js"
+import { Jogador } from "./entities/Jogador.js"
+import { Peixe } from "./entities/Peixe.js"
+import { Chama } from "./entities/Chamas.js"
+import { Aranha } from "./entities/Aranha.js"
 import { Camera } from "./utils/Camera.js"
 import { level1Layout, level1Mappings } from "./content/level1/level1Layout.js"
 import { level1Config } from "./content/level1/config.js"
@@ -10,8 +10,8 @@ import { level2Config } from "./content/level2/config.js"
 import { UIManager } from "./utils/UIManager.js"
 import { level2Layout, level2Mappings } from "./content/level2/level2Layout.js"
 import { Level } from "./utils/Level.js"
-import { Axes } from "./entities/Axes.js"
-import { Saws } from "./entities/Saws.js"
+import { Machado } from "./entities/Machado.js"
+import { Serras } from "./entities/Serras.js"
 import { load } from "./utils/loader.js"
 import { bgSoundManager } from "./utils/BGSoundManager.js"
 
@@ -44,46 +44,46 @@ const scenes = {
     level1.drawBackground("bg-principal")
     level1.drawMapLayout(level1Layout, level1Mappings)
 
-    const player = new Player(
-      level1Config.playerStartPosX,
-      level1Config.playerStartPosY,
-      level1Config.playerSpeed,
+    const jogador = new Jogador(
+      level1Config.jogadorStartPosX,
+      level1Config.jogadorStartPosY,
+      level1Config.jogadorSpeed,
       level1Config.jumpForce,
       level1Config.nbLives,
       1,
       false
     )
-    player.enablePassthrough()
-    player.enableCoinPickUp()
-    player.enableMobVunerability()
+    jogador.ativarPassagem()
+    jogador.ativarColetaMoedas()
+    jogador.enableMobVunerability()
 
-    const fish = new Fish(
-      level1Config.fishPositions.map((fishPos) => fishPos()),
-      level1Config.fishAmplitudes,
-      level1Config.fishType
+    const peixe = new Peixe(
+      level1Config.peixePositions.map((peixePos) => peixePos()),
+      level1Config.peixeAmplitudes,
+      level1Config.peixeType
     )
-    fish.setMovementPattern()
-    fish.enableMobVunerability()
+    peixe.setMovementPattern()
+    peixe.enableMobVunerability()
 
-    const spiders = new Spiders(
-      level1Config.spiderPositions.map((spiderPos) => spiderPos()),
-      level1Config.spiderAmplitudes,
-      level1Config.spiderSpeeds,
-      level1Config.spiderType
+    const aranha = new Aranha(
+      level1Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
+      level1Config.aranhaAmplitudes,
+      level1Config.aranhaSpeeds,
+      level1Config.aranhaType
     )
-    spiders.setMovementPattern()
-    spiders.enablePassthrough()
-    spiders.enableMobVunerability()
+    aranha.setMovementPattern()
+    aranha.ativarPassagem()
+    aranha.enableMobVunerability()
 
     level1.drawWaves("water", "wave")
 
     const camera = new Camera()
-    camera.attach(player.gameObj, 0, -200, null, 200)
-    UIManager.exibirContagemVidas(player)
-    UIManager.exibirContagemMoedas(player)
+    camera.attach(jogador.gameObj, 0, -200, null, 200)
+    UIManager.exibirContagemVidas(jogador)
+    UIManager.exibirContagemMoedas(jogador)
 
-    player.updateLives(UIManager.contagemVidasUI)
-    player.updateCoinCount(UIManager.contagemMoedasUI)
+    jogador.updateLives(UIManager.contagemVidasUI)
+    jogador.updateCoinCount(UIManager.contagemMoedasUI)
   },
   2: () => {
     bgSoundManager.pauseAllSounds()
@@ -92,64 +92,64 @@ const scenes = {
     setGravity(level2Config.gravity)
 
     const level2 = new Level()
-    level2.drawBackground("castle-background")
+    level2.drawBackground("bg-secundario")
     level2.drawMapLayout(level2Layout, level2Mappings)
 
-    const player = new Player(
-      level2Config.playerStartPosX,
-      level2Config.playerStartPosY,
-      level2Config.playerSpeed,
+    const jogador = new Jogador(
+      level2Config.jogadorStartPosX,
+      level2Config.jogadorStartPosY,
+      level2Config.jogadorSpeed,
       level2Config.jumpForce,
       level2Config.nbLives,
       2,
       false
     )
-    player.enablePassthrough()
-    player.enableCoinPickUp()
-    player.enableMobVunerability()
+    jogador.ativarPassagem()
+    jogador.ativarColetaMoedas()
+    jogador.enableMobVunerability()
 
-    const flames = new Flames(
-      level2Config.flamePositions.map((flamePos) => flamePos()),
-      level2Config.flameAmplitudes,
-      level2Config.flameType
+    const chamas = new Chama(
+      level2Config.chamaPositions.map((chamaPos) => chamaPos()),
+      level2Config.chamaAmplitudes,
+      level2Config.chamaType
     )
-    flames.setMovementPattern()
-    flames.enableMobVunerability()
+    chamas.setMovementPattern()
+    chamas.enableMobVunerability()
 
-    const spiders = new Spiders(
-      level2Config.spiderPositions.map((spiderPos) => spiderPos()),
-      level2Config.spiderAmplitudes,
-      level2Config.spiderSpeeds,
-      level2Config.spiderType
+    const aranha = new Aranha(
+      level2Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
+      level2Config.aranhaAmplitudes,
+      level2Config.aranhaSpeeds,
+      level2Config.aranhaType
     )
-    spiders.setMovementPattern()
-    spiders.enablePassthrough()
-    spiders.enableMobVunerability()
+    aranha.setMovementPattern()
+    aranha.ativarPassagem()
+    aranha.enableMobVunerability()
 
-    const axes = new Axes(
-      level2Config.axesPositions.map((axePos) => axePos()),
-      level2Config.axesSwingTimes
+    const machados = new Machado(
+      level2Config.machadosPositions.map((machadoPos) => machadoPos()),
+      level2Config.machadosSwingTimes
     )
-    axes.setMovementPattern()
-    axes.enableMobVunerability()
+    machados.setMovementPattern()
+    machados.enableMobVunerability()
 
-    const saws = new Saws(
-      level2Config.sawPositions.map((sawPos) => sawPos()),
-      level2Config.sawRanges
+    const serras = new Serras(
+      level2Config.serraPositions.map((serraPos) => serraPos()),
+      level2Config.serraRanges
     )
-    saws.rotate()
-    saws.enableMobVunerability()
+    serras.rotate()
+    serras.enableMobVunerability()
 
     level2.drawWaves("lava", "wave")
 
     const camera = new Camera()
-    camera.attach(player.gameObj, 0, -200, null, 200)
+    camera.attach(jogador.gameObj, 0, -200, null, 200)
 
-    UIManager.exibirContagemVidas(player)
-    UIManager.exibirContagemMoedas(player)
+    UIManager.exibirContagemVidas(jogador)
+    UIManager.exibirContagemMoedas(jogador)
 
-    player.updateLives(UIManager.contagemVidasUI)
-    player.updateCoinCount(UIManager.contagemMoedasUI)
+    jogador.updateLives(UIManager.contagemVidasUI)
+    jogador.updateCoinCount(UIManager.contagemMoedasUI)
   },
   3: () => UIManager.telaFimDeJogo(),
   gameover: async () => UIManager.exibirTelaDeFimDeJogo(),
@@ -160,4 +160,4 @@ for (const key in scenes) {
 }
 
 // go("menu")
-go("menu")
+go(2)

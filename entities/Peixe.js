@@ -1,4 +1,4 @@
-export class Fish {
+export class Peixe {
   constructor(positions, amplitudes, type) {
     this.amplitudes = amplitudes
     this.fish = []
@@ -60,7 +60,7 @@ export class Fish {
     for (const fish of this.fish) {
       fish.onCollide("chamas-jogador", () => {
         destroy(fish)
-        play("swinging-axe")
+        play("machado")
       })
     }
   }

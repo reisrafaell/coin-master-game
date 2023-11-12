@@ -40,7 +40,7 @@ export const load = {
       },
     })
     loadSprite("bridge", "./assets/Bridge.png")
-    loadSprite("spider-1", "./assets/Spider_1.png", {
+    loadSprite("aranha-1", "./assets/aranha_1.png", {
       sliceX: 3,
       sliceY: 1,
       anims: {
@@ -48,7 +48,7 @@ export const load = {
         idle: 0,
       },
     })
-    loadSprite("spider-2", "./assets/Spider_2.png", {
+    loadSprite("aranha-2", "./assets/aranha_2.png", {
       sliceX: 3,
       sliceY: 1,
       anims: {
@@ -119,7 +119,7 @@ export const load = {
         swim: { from: 0, to: 1, loop: true },
       },
     })
-    loadSprite("castle-background", "./assets/Castle_Background_0.png")
+    loadSprite("bg-secundario", "./assets/bg-secundario.jpg")
     loadSprite("brick-tileset", "./assets/Brick_Tileset.png", {
       sliceX: 3,
       sliceY: 4,
@@ -184,8 +184,8 @@ export const load = {
         burn: { from: 0, to: 1, loop: true },
       },
     })
-    loadSprite("axe", "./assets/Axe_Trap.png")
-    loadSprite("saw", "./assets/Circular_Saw.png")
+    loadSprite("machado", "./assets/machado.png")
+    loadSprite("serra", "./assets/Circular_serra.png")
     loadSprite("rock-tileset", "./assets/bloco-cinza-2.png", {
       sliceX: 3,
       sliceY: 4,
@@ -216,35 +216,17 @@ export const load = {
         "mr-2": 8,
       },
     })
-    loadSprite("clouds", "./assets/Clouds.png", {
-      sliceX: 8,
-      sliceY: 1,
-      anims: {
-        wave: {
-          from: 0,
-          to: 7,
-          speed: 16,
-          loop: true,
-        },
-        "wave-reversed": {
-          from: 7,
-          to: 0,
-          speed: 16,
-          loop: true,
-        },
-      },
-    })
   },
   sounds: () => {
     loadSound("jump", "./sounds/jump.wav")
     loadSound("coin", "./sounds/coin.wav")
     loadSound("water-ambience", "./sounds/water-ambience.mp3")
-    loadSound("spider-attack", "./sounds/spider-attack.mp3")
+    loadSound("aranha-attack", "./sounds/aranha-attack.mp3")
     loadSound("hit", "./sounds/hit.wav")
     loadSound("lava-ambience", "./sounds/lava.wav")
     loadSound("confirm-ui", "./sounds/confirm-ui.wav")
-    loadSound("swinging-axe", "./sounds/swinging-axe.mp3")
-    loadSound("saw", "./sounds/saw.wav")
+    loadSound("machado", "./sounds/machado.mp3")
+    loadSound("serra", "./sounds/serra.wav")
     loadSound("fireball", "./sounds/fireball.wav")
     loadSound("strong-wind", "./sounds/strong-wind.wav")
     loadSound("dive", "./sounds/dive.wav")

@@ -1,4 +1,4 @@
-export class Flames {
+export class Chama {
   constructor(positions, amplitudes, type) {
     this.amplitudes = amplitudes
     this.flames = []
@@ -22,7 +22,7 @@ export class Flames {
     for (const flames of this.flames) {
       flames.onCollide("chamas-jogador", () => {
         destroy(flames)
-        play("swinging-axe")
+        play("machado")
         play("fireball", { volume: 0 })
       })
     }

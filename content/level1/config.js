@@ -1,11 +1,11 @@
 export const level1Config = {
   gravity: 1400,
-  playerSpeed: 400,
+  jogadorSpeed: 400,
   jumpForce: 650,
   nbLives: 5,
-  playerStartPosX: 1500,
-  playerStartPosY: 100,
-  fishPositions: [
+  jogadorStartPosX: 1500,
+  jogadorStartPosY: 100,
+  peixePositions: [
     () => vec2(2595, 600),
     () => vec2(2655, 600),
     () => vec2(4100, 600),
@@ -13,15 +13,15 @@ export const level1Config = {
     () => vec2(5200, 800),
     () => vec2(5300, 800),
   ],
-  fishAmplitudes: [300, 500, 400, 500, 900, 800],
-  fishType: 1,
-  spiderPositions: [
+  peixeAmplitudes: [300, 500, 400, 500, 900, 800],
+  peixeType: 1,
+  aranhaPositions: [
     () => vec2(2000, 300),
     () => vec2(2020, 0),
     () => vec2(3200, 200),
     () => vec2(3500, 300),
   ],
-  spiderAmplitudes: [300, 150, 150, 300],
-  spiderSpeeds: [2, 1, 1, 2],
-  spiderType: 1,
+  aranhaAmplitudes: [300, 150, 150, 300],
+  aranhaSpeeds: [2, 1, 1, 2],
+  aranhaType: 1,
 }
