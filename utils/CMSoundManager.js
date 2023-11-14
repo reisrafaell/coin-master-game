@@ -1,24 +1,24 @@
 class CMSoundManager {
-  mapaSom = {}
+  soundMap = {}
 
   addSound(key, options) {
-    this.mapaSom[key] = play(key, options)
+    this.soundMap[key] = play(key, options)
   }
 
   play(key) {
-    this.mapaSom[key].seek = 0
-    this.mapaSom[key].paused = false
+    this.soundMap[key].seek = 0
+    this.soundMap[key].paused = false
   }
 
   pause(key) {
-    this.mapaSom[key].paused = true
-    this.mapaSom[key].seek = 0
+    this.soundMap[key].paused = true
+    this.soundMap[key].seek = 0
   }
 
   pauseAllSounds() {
-    for (const key in this.mapaSom) {
-      this.mapaSom[key].paused = true
-      this.mapaSom[key].seek = 0
+    for (const key in this.soundMap) {
+      this.soundMap[key].paused = true
+      this.soundMap[key].seek = 0
     }
   }
 }

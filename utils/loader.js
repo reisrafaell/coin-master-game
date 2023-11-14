@@ -23,7 +23,7 @@ export const load = {
       },
     })
     loadSprite("logo", "./assets/Logo.png")
-    loadSprite("player", "./assets/Player.png", {
+    loadSprite("jogador", "./assets/Player.png", {
       sliceX: 9,
       sliceY: 4,
       anims: {
