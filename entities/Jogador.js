@@ -32,7 +32,7 @@ export class Jogador {
     this.jumpForce = jumpForce
     this.lives = nbLives
     this.previousHeight = this.gameObj.pos.y
-    this.setPlayerControls()
+    this.setJogadorControls()
     this.update()
   }
 
@@ -40,13 +40,13 @@ export class Jogador {
     this.initialX = x
     this.initialY = y
     this.gameObj = add([
-      sprite("player", { anim: "idle" }),
+      sprite("jogador", { anim: "idle" }),
       area({ shape: new Rect(vec2(0, 3), 47, 47) }),
       anchor("center"),
       pos(x, y),
       scale(1.5),
       body(),
-      "player",
+      "jogador",
       { dir: vec2(1, 0), muzzleOffset: vec2(this.bulletDistance, 0) },
     ])
   }
@@ -71,7 +71,7 @@ export class Jogador {
     })
   }
 
-  setPlayerControls() {
+  setJogadorControls() {
     onKeyDown("left", () => {
       if (this.gameObj.paused) return
       if (this.gameObj.curAnim() !== "run") this.gameObj.play("run")
@@ -127,7 +127,7 @@ export class Jogador {
     return new IniciarChamas(heroiPosition, direcaoInicial)
   }
 
-  respawnPlayer() {
+  respawnJogador() {
     if (this.lives > 0) {
       this.gameObj.pos = vec2(this.initialX, this.initialY)
       this.lives--
@@ -142,7 +142,7 @@ export class Jogador {
   habilitarVulnerabilidade() {
     function hitAndRespawn(context) {
       play("hit", { speed: 1.5 })
-      context.respawnPlayer()
+      context.respawnJogador()
     }
     this.gameObj.onCollide("peixe", () => hitAndRespawn(this))
     this.gameObj.onCollide("aranhas", () => hitAndRespawn(this))
@@ -185,7 +185,7 @@ export class Jogador {
 
       if (this.gameObj.pos.y > 1000) {
         play("hit", { speed: 1.5 })
-        this.respawnPlayer()
+        this.respawnJogador()
       }
     })
   }

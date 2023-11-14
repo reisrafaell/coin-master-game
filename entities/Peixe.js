@@ -11,7 +11,7 @@ export class Peixe {
           pos(position),
           scale(4),
           rotate(90),
-          state("launch", ["launch", "rotate", "fall"]),
+          state("lancar", ["lancar", "rotate", "fall"]),
           offscreen(),
           "peixe",
         ])
@@ -21,7 +21,7 @@ export class Peixe {
 
   setPadraoMovimento() {
     for (const [index, peixe] of this.peixe.entries()) {
-      const launch = peixe.onStateEnter("launch", async () => {
+      const lancar = peixe.onStateEnter("lancar", async () => {
         await tween(
           peixe.pos.y,
           peixe.pos.y - this.amplitudes[index],
@@ -45,11 +45,11 @@ export class Peixe {
           (posY) => (peixe.pos.y = posY),
           easings.easeOutSine
         )
-        peixe.enterState("rotate", "launch")
+        peixe.enterState("rotate", "lancar")
       })
 
       onSceneLeave(() => {
-        launch.cancel()
+        lancar.cancel()
         rotate.cancel()
         fall.cancel()
       })

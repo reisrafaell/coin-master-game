@@ -1,9 +1,9 @@
 import { cmSoundManager } from "./CMSoundManager.js"
 
 class DS {
-  exibirContagemVidas(player) {
+  exibirContagemVidas(jogador) {
     this.contagemVidasUI = add([
-      text(`${player.lives}`, {
+      text(`${jogador.lives}`, {
         font: "Round",
         size: 50,
       }),
@@ -19,9 +19,9 @@ class DS {
     ])
   }
 
-  exibirContagemMoedas(player) {
+  exibirContagemMoedas(jogador) {
     this.contagemMoedasUI = add([
-      text(`${player.moedas} / ${this.contagemTotalMoedas}`, {
+      text(`${jogador.moedas} / ${this.contagemTotalMoedas}`, {
         font: "Round",
         size: 50,
       }),
@@ -135,7 +135,7 @@ class DS {
       pos(-490, 100),
     ])
     painelControles.add([
-      text("Mover", { font: "Round", size: 32 }),
+      text("Rotate", { font: "Round", size: 32 }),
       pos(10, 100),
     ])
     painelControles.add([

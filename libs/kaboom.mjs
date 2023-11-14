@@ -5368,7 +5368,7 @@ var mo = o((s = {}) => {
       moveLeft() {
         this.tilePos = this.tilePos.add(S(-1, 0))
       },
-      moveRight() {
+      rotateight() {
         this.tilePos = this.tilePos.add(S(1, 0))
       },
       moveUp() {

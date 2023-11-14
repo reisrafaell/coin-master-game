@@ -1,7 +1,7 @@
 import kaboom from "./libs/kaboom.mjs"
 import { Jogador } from "./entities/Jogador.js"
 import { Peixe } from "./entities/Peixe.js"
-import { Chama } from "./entities/Chamas.js"
+import { Chamas } from "./entities/Chamas.js"
 import { Aranhas } from "./entities/Aranhas.js"
 import { Camera } from "./utils/Camera.js"
 import { level1Layout, level1Mappings } from "./content/level1/level1Layout.js"
@@ -111,7 +111,7 @@ const scenes = {
     jogador.ativarColetaMoedas()
     jogador.habilitarVulnerabilidade()
 
-    const chamas = new Chama(
+    const chamas = new Chamas(
       level2Config.chamaPositions.map((chamaPos) => chamaPos()),
       level2Config.chamaAmplitudes,
       level2Config.chamaType
@@ -119,7 +119,7 @@ const scenes = {
     chamas.setPadraoMovimento()
     chamas.habilitarVulnerabilidade()
 
-    const aranhas = new s(
+    const aranhas = new Aranhas(
       level2Config.aranhaPositions.map((aranhaPos) => aranhaPos()),
       level2Config.aranhaAmplitudes,
       level2Config.aranhaSpeeds,

@@ -58,7 +58,7 @@ export function gerarMapas(tileType) {
     c: () => [sprite(`${tileType}-oneway-peca`, { anim: "ml" }), offscreen()],
     d: () => [sprite(`${tileType}-oneway-peca`, { anim: "mm" }), offscreen()],
     e: () => [sprite(`${tileType}-oneway-peca`, { anim: "mr" }), offscreen()],
-    o: () => [sprite("bridge"), area(), body({ isStatic: true }), offscreen()],
+    o: () => [sprite("ponte"), area(), body({ isStatic: true }), offscreen()],
     "@": () => [sprite("moeda"), area(), "moeda", offscreen()],
   }
 }

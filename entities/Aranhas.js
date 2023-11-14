@@ -87,7 +87,7 @@ export class Aranhas {
 
   habilitarVulnerabilidade() {
     for (const aranha of this.aranhas) {
-      aranha.onCollide("player-flames", () => {
+      aranha.onCollide("jogador-chamas", () => {
         destroy(aranha)
         play("balancar-machado")
         play("aranha-attack", { volume: 0 })

@@ -15,15 +15,15 @@ export const load = {
     loadSprite("moeda", "./assets/Moeda.png")
     loadSprite("creditos", "./assets/creditos.png")
     loadSprite("uniacademia-logo", "./assets/uniacademia-logo.png")
-    loadSprite("chamas-jogador", "./assets/flames.png", {
+    loadSprite("chamas-jogador", "./assets/chamas.png", {
       sliceX: 9,
       sliceY: 1,
       anims: {
-        burn: { from: 0, to: 8, loop: true, speed: 6 },
+        queimar: { from: 0, to: 8, loop: true, speed: 6 },
       },
     })
     loadSprite("logo", "./assets/Logo.png")
-    loadSprite("player", "./assets/Player.png", {
+    loadSprite("jogador", "./assets/Jogador.png", {
       sliceX: 8,
       sliceY: 2,
       anims: {
@@ -41,7 +41,7 @@ export const load = {
         "jump-down": 4,
       },
     })
-    loadSprite("bridge", "./assets/Bridge.png")
+    loadSprite("ponte", "./assets/Ponte.png")
     loadSprite("aranha-1", "./assets/aranha_1.png", {
       sliceX: 3,
       sliceY: 1,
@@ -171,19 +171,19 @@ export const load = {
         },
       },
     })
-    loadSprite("flame-1", "./assets/Flame_1.png", {
+    loadSprite("chama-1", "./assets/Chama_1.png", {
       sliceX: 2,
       sliceY: 1,
       anims: {
-        burn: { from: 0, to: 1, loop: true },
+        queimar: { from: 0, to: 1, loop: true },
       },
     })
 
-    loadSprite("flame-2", "./assets/Flame_2.png", {
+    loadSprite("chama-2", "./assets/Chama_2.png", {
       sliceX: 2,
       sliceY: 1,
       anims: {
-        burn: { from: 0, to: 1, loop: true },
+        queimar: { from: 0, to: 1, loop: true },
       },
     })
     loadSprite("machado", "./assets/machado.png")
