@@ -1,9 +1,9 @@
-import { bgSoundManager } from "./BGSoundManager.js"
+import { cmSoundManager } from "./CMSoundManager.js"
 
 class DS {
-  exibirContagemVidas(player) {
+  exibirContagemVidas(jogador) {
     this.contagemVidasUI = add([
-      text(`${player.lives}`, {
+      text(`${jogador.lives}`, {
         font: "Round",
         size: 50,
       }),
@@ -19,21 +19,21 @@ class DS {
     ])
   }
 
-  exibirContagemMoedas(player) {
+  exibirContagemMoedas(jogador) {
     this.contagemMoedasUI = add([
-      text(`${player.coins} / ${this.contagemTotalMoedas}`, {
+      text(`${jogador.moedas} / ${this.contagemTotalMoedas}`, {
         font: "Round",
         size: 50,
       }),
       {
-        contagemTotalMoedas: get("coin", { recursive: true }).length,
+        contagemTotalMoedas: get("moeda", { recursive: true }).length,
       },
       fixed(),
       pos(70, 120),
     ])
 
     this.contagemMoedasUI.add([
-      sprite("coin-icon"),
+      sprite("moeda-icon"),
       pos(-60, 0),
       scale(3),
       fixed(),
@@ -135,7 +135,7 @@ class DS {
       pos(-490, 100),
     ])
     painelControles.add([
-      text("Mover", { font: "Round", size: 32 }),
+      text("Rotate", { font: "Round", size: 32 }),
       pos(10, 100),
     ])
     painelControles.add([
@@ -158,7 +158,7 @@ class DS {
   }
 
   exibirTelaDeFimDeJogo() {
-    bgSoundManager.pauseAllSounds()
+    cmSoundManager.pauseAllSounds()
     add([rect(1280, 720), color(0, 0, 0)])
     add([
       text("Fim de Jogo!", { size: 50, font: "Round" }),
@@ -179,7 +179,7 @@ class DS {
   }
 
   telaFimDeJogo() {
-    bgSoundManager.pauseAllSounds()
+    cmSoundManager.pauseAllSounds()
     add([rect(1280, 720), color(0, 0, 0)])
     add([
       text("Voce ganhou! Obrigado por jogar.", { size: 50, font: "Round" }),

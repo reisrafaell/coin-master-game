@@ -10,16 +10,16 @@ export const load = {
     loadSprite("right", "./assets/Arrow_Right_Key_Dark.png")
     loadSprite("space", "./assets/Space_Key_Dark.png")
     loadSprite("tecla-x", "./assets/tecla-x.png")
-    loadSprite("coin-icon", "./assets/Coins_Ui.png")
+    loadSprite("moeda-icon", "./assets/Moeda_Ui.png")
     loadSprite("star-icon", "./assets/Stars_Ui.png")
-    loadSprite("coin", "./assets/Coin.png")
+    loadSprite("moeda", "./assets/Moeda.png")
     loadSprite("creditos", "./assets/creditos.png")
     loadSprite("uniacademia-logo", "./assets/uniacademia-logo.png")
-    loadSprite("chamas-jogador", "./assets/flames.png", {
+    loadSprite("chamas-jogador", "./assets/chamas.png", {
       sliceX: 9,
       sliceY: 1,
       anims: {
-        burn: { from: 0, to: 8, loop: true, speed: 6 },
+        queimar: { from: 0, to: 8, loop: true, speed: 6 },
       },
     })
     loadSprite("logo", "./assets/Logo.png")
@@ -41,7 +41,7 @@ export const load = {
         "jump-down": 19,
       },
     })
-    loadSprite("bridge", "./assets/Bridge.png")
+    loadSprite("ponte", "./assets/Ponte.png")
     loadSprite("aranha-1", "./assets/aranha_1.png", {
       sliceX: 3,
       sliceY: 1,
@@ -107,14 +107,14 @@ export const load = {
         },
       },
     })
-    loadSprite("fish-1", "./assets/Fish_1.png", {
+    loadSprite("peixe-1", "./assets/Peixe_1.png", {
       sliceX: 2,
       sliceY: 1,
       anims: {
         swim: { from: 0, to: 1, loop: true },
       },
     })
-    loadSprite("fish-2", "./assets/Fish_2.png", {
+    loadSprite("peixe-2", "./assets/Peixe_2.png", {
       sliceX: 2,
       sliceY: 1,
       anims: {
@@ -171,19 +171,19 @@ export const load = {
         },
       },
     })
-    loadSprite("flame-1", "./assets/Flame_1.png", {
+    loadSprite("chama-1", "./assets/Chama_1.png", {
       sliceX: 2,
       sliceY: 1,
       anims: {
-        burn: { from: 0, to: 1, loop: true },
+        queimar: { from: 0, to: 1, loop: true },
       },
     })
 
-    loadSprite("flame-2", "./assets/Flame_2.png", {
+    loadSprite("chama-2", "./assets/Chama_2.png", {
       sliceX: 2,
       sliceY: 1,
       anims: {
-        burn: { from: 0, to: 1, loop: true },
+        queimar: { from: 0, to: 1, loop: true },
       },
     })
     loadSprite("machado", "./assets/machado.png")
@@ -221,7 +221,7 @@ export const load = {
   },
   sounds: () => {
     loadSound("jump", "./sounds/jump.wav")
-    loadSound("coin", "./sounds/coin.wav")
+    loadSound("moeda", "./sounds/moeda.wav")
     loadSound("water-ambience", "./sounds/water-ambience.mp3")
     loadSound("aranha-attack", "./sounds/aranha-attack.mp3")
     loadSound("hit", "./sounds/hit.wav")

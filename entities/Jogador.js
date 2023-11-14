@@ -10,7 +10,7 @@ export class Jogador {
 
   lives = 5
 
-  coins = 0
+  moedas = 0
 
   hasJumpedOnce = false
 
@@ -32,7 +32,7 @@ export class Jogador {
     this.jumpForce = jumpForce
     this.lives = nbLives
     this.previousHeight = this.gameObj.pos.y
-    this.setPlayerControls()
+    this.setJogadorControls()
     this.update()
   }
 
@@ -40,13 +40,13 @@ export class Jogador {
     this.initialX = x
     this.initialY = y
     this.gameObj = add([
-      sprite("player", { anim: "idle" }),
+      sprite("jogador", { anim: "idle" }),
       area({ shape: new Rect(vec2(0, 3), 47, 47) }),
       anchor("center"),
       pos(x, y),
       scale(1.5),
       body(),
-      "player",
+      "jogador",
       { dir: vec2(1, 0), muzzleOffset: vec2(this.bulletDistance, 0) },
     ])
   }
@@ -64,14 +64,14 @@ export class Jogador {
   }
 
   ativarColetaMoedas() {
-    this.gameObj.onCollide("coin", (coin) => {
-      this.coins++
-      destroy(coin)
-      play("coin")
+    this.gameObj.onCollide("moeda", (moeda) => {
+      this.moedas++
+      destroy(moeda)
+      play("moeda")
     })
   }
 
-  setPlayerControls() {
+  setJogadorControls() {
     onKeyDown("left", () => {
       if (this.gameObj.paused) return
       if (this.gameObj.curAnim() !== "run") this.gameObj.play("run")
@@ -127,7 +127,7 @@ export class Jogador {
     return new IniciarChamas(heroiPosition, direcaoInicial)
   }
 
-  respawnPlayer() {
+  respawnJogador() {
     if (this.lives > 0) {
       this.gameObj.pos = vec2(this.initialX, this.initialY)
       this.lives--
@@ -142,14 +142,14 @@ export class Jogador {
   habilitarVulnerabilidade() {
     function hitAndRespawn(context) {
       play("hit", { speed: 1.5 })
-      context.respawnPlayer()
+      context.respawnJogador()
     }
-    this.gameObj.onCollide("fish", () => hitAndRespawn(this))
+    this.gameObj.onCollide("peixe", () => hitAndRespawn(this))
     this.gameObj.onCollide("aranhas", () => hitAndRespawn(this))
-    this.gameObj.onCollide("flames", () => hitAndRespawn(this))
+    this.gameObj.onCollide("chamas", () => hitAndRespawn(this))
     this.gameObj.onCollide("machados", () => hitAndRespawn(this))
     this.gameObj.onCollide("serras", () => hitAndRespawn(this))
-    this.gameObj.onCollide("birds", () => hitAndRespawn(this))
+    this.gameObj.onCollide("passaro", () => hitAndRespawn(this))
     this.gameObj.onCollide("chamas-jogador", () => hitAndRespawn(this))
   }
 
@@ -185,7 +185,7 @@ export class Jogador {
 
       if (this.gameObj.pos.y > 1000) {
         play("hit", { speed: 1.5 })
-        this.respawnPlayer()
+        this.respawnJogador()
       }
     })
   }
@@ -198,8 +198,8 @@ export class Jogador {
 
   atualizarMoedas(contagemMoedasUI) {
     onUpdate(() => {
-      contagemMoedasUI.text = `${this.coins} / ${contagemMoedasUI.contagemTotalMoedas}`
-      if (this.coins === contagemMoedasUI.contagemTotalMoedas) {
+      contagemMoedasUI.text = `${this.moedas} / ${contagemMoedasUI.contagemTotalMoedas}`
+      if (this.moedas === contagemMoedasUI.contagemTotalMoedas) {
         go(this.isInTerminalScene ? "end" : this.currentLevelScene + 1)
       }
     })

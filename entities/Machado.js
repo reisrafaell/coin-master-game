@@ -9,7 +9,7 @@ export class Machado {
           sprite("machado"),
           area({
             shape: new Rect(vec2(0, 40), 30, 10),
-            collisionIgnore: ["aranhas", "flames"],
+            collisionIgnore: ["aranhas", "chamas"],
           }),
           pos(position),
           scale(4),

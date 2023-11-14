@@ -1,17 +1,17 @@
-export class Chama {
+export class Chamas {
   constructor(positions, amplitudes, type) {
     this.amplitudes = amplitudes
     this.chamas = []
     for (const position of positions) {
       this.chamas.push(
         add([
-          sprite(`flame-${type}`, { anim: "burn" }),
+          sprite(`chama-${type}`, { anim: "queimar" }),
           area({ shape: new Rect(vec2(0), 12, 12) }),
           anchor("center"),
           pos(position),
           scale(4),
           rotate(),
-          state("launch", ["launch", "rotate", "fall"]),
+          state("lancar", ["lancar", "rotate", "fall"]),
           offscreen(),
           "chamas",
         ])
@@ -28,37 +28,37 @@ export class Chama {
     }
   }
   setPadraoMovimento() {
-    for (const [index, flame] of this.chamas.entries()) {
-      const launch = flame.onStateEnter("launch", async () => {
-        if (!flame.isOffScreen()) play("fireball")
+    for (const [index, chama] of this.chamas.entries()) {
+      const lancar = chama.onStateEnter("lancar", async () => {
+        if (!chama.isOffScreen()) play("fireball")
         await tween(
-          flame.pos.y,
-          flame.pos.y - this.amplitudes[index],
+          chama.pos.y,
+          chama.pos.y - this.amplitudes[index],
           2,
-          (posY) => (flame.pos.y = posY),
+          (posY) => (chama.pos.y = posY),
           easings.linear
         )
-        flame.enterState("rotate", "fall")
+        chama.enterState("rotate", "fall")
       })
 
-      const rotate = flame.onStateEnter("rotate", (nextState) => {
-        flame.rotateBy(180)
-        flame.enterState(nextState)
+      const rotate = chama.onStateEnter("rotate", (nextState) => {
+        chama.rotateBy(180)
+        chama.enterState(nextState)
       })
 
-      const fall = flame.onStateEnter("fall", async () => {
+      const fall = chama.onStateEnter("fall", async () => {
         await tween(
-          flame.pos.y,
-          flame.pos.y + this.amplitudes[index],
+          chama.pos.y,
+          chama.pos.y + this.amplitudes[index],
           2,
-          (posY) => (flame.pos.y = posY),
+          (posY) => (chama.pos.y = posY),
           easings.linear
         )
-        flame.enterState("rotate", "launch")
+        chama.enterState("rotate", "lancar")
       })
 
       onSceneLeave(() => {
-        launch.cancel()
+        lancar.cancel()
         rotate.cancel()
         fall.cancel()
       })

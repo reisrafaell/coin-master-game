@@ -7,15 +7,15 @@ export class IniciarChamas {
 
     this.iniciarChamas = add([
       sprite("chamas-jogador", {
-        anim: "burn",
+        anim: "queimar",
         speed: 0.1,
       }),
-      area({ shape: new Rect(vec2(0.5), 30, 50), collisionIgnore: ["player"] }),
+      area({ shape: new Rect(vec2(0.5), 30, 50), collisionIgnore: ["jogador"] }),
       anchor("center"),
       pos(posicaoInicial),
       scale(1.3),
       rotate(),
-      state("launch", ["launch", "rotate", "fall"]),
+      state("lancar", ["lancar", "rotate", "fall"]),
       offscreen(),
       "chamas-jogador",
     ])

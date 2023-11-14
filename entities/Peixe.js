@@ -1,55 +1,55 @@
 export class Peixe {
   constructor(positions, amplitudes, type) {
     this.amplitudes = amplitudes
-    this.fish = []
+    this.peixe = []
     for (const position of positions) {
-      this.fish.push(
+      this.peixe.push(
         add([
-          sprite(`fish-${type}`, { anim: "swim" }),
+          sprite(`peixe-${type}`, { anim: "swim" }),
           area({ shape: new Rect(vec2(0), 12, 12) }),
           anchor("center"),
           pos(position),
           scale(4),
           rotate(90),
-          state("launch", ["launch", "rotate", "fall"]),
+          state("lancar", ["lancar", "rotate", "fall"]),
           offscreen(),
-          "fish",
+          "peixe",
         ])
       )
     }
   }
 
   setPadraoMovimento() {
-    for (const [index, fish] of this.fish.entries()) {
-      const launch = fish.onStateEnter("launch", async () => {
+    for (const [index, peixe] of this.peixe.entries()) {
+      const lancar = peixe.onStateEnter("lancar", async () => {
         await tween(
-          fish.pos.y,
-          fish.pos.y - this.amplitudes[index],
+          peixe.pos.y,
+          peixe.pos.y - this.amplitudes[index],
           2,
-          (posY) => (fish.pos.y = posY),
+          (posY) => (peixe.pos.y = posY),
           easings.easeOutSine
         )
-        fish.enterState("rotate", "fall")
+        peixe.enterState("rotate", "fall")
       })
 
-      const rotate = fish.onStateEnter("rotate", (nextState) => {
-        fish.rotateBy(180)
-        fish.enterState(nextState)
+      const rotate = peixe.onStateEnter("rotate", (nextState) => {
+        peixe.rotateBy(180)
+        peixe.enterState(nextState)
       })
 
-      const fall = fish.onStateEnter("fall", async () => {
+      const fall = peixe.onStateEnter("fall", async () => {
         await tween(
-          fish.pos.y,
-          fish.pos.y + this.amplitudes[index],
+          peixe.pos.y,
+          peixe.pos.y + this.amplitudes[index],
           2,
-          (posY) => (fish.pos.y = posY),
+          (posY) => (peixe.pos.y = posY),
           easings.easeOutSine
         )
-        fish.enterState("rotate", "launch")
+        peixe.enterState("rotate", "lancar")
       })
 
       onSceneLeave(() => {
-        launch.cancel()
+        lancar.cancel()
         rotate.cancel()
         fall.cancel()
       })
@@ -57,9 +57,9 @@ export class Peixe {
   }
 
   habilitarVulnerabilidade() {
-    for (const fish of this.fish) {
-      fish.onCollide("chamas-jogador", () => {
-        destroy(fish)
+    for (const peixe of this.peixe) {
+      peixe.onCollide("chamas-jogador", () => {
+        destroy(peixe)
         play("machado")
       })
     }

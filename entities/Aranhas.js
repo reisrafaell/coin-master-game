@@ -1,4 +1,4 @@
-export class Aranha {
+export class Aranhas {
   rangeX = 0
   rangeY = 800
 
@@ -59,7 +59,7 @@ export class Aranha {
         }
       })
 
-      const rasteijarEsquerda = aranha.onStateEnter("crawl-left", async () => {
+      const crawlLeft = aranha.onStateEnter("crawl-left", async () => {
         aranha.flipX = false
 
         await this.crawl(
@@ -79,7 +79,7 @@ export class Aranha {
 
       onSceneLeave(() => {
         idle.cancel()
-        rasteijarEsquerda.cancel()
+        crawlLeft.cancel()
         crawlRight.cancel()
       })
     }
@@ -87,9 +87,9 @@ export class Aranha {
 
   habilitarVulnerabilidade() {
     for (const aranha of this.aranhas) {
-      aranha.onCollide("chamas-jogador", () => {
+      aranha.onCollide("jogador-chamas", () => {
         destroy(aranha)
-        play("machado")
+        play("balancar-machado")
         play("aranha-attack", { volume: 0 })
       })
     }
