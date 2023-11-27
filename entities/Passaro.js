@@ -45,9 +45,9 @@ export class Passaro {
   }
   enableMobVunerability() {
     for (const passaro of this.passaro) {
-      passaro.onCollide("jogador-chamas", () => {
+      passaro.onCollide("chamas-jogador", () => {
         destroy(passaro)
-        play("balancar-machado")
+        play("machado")
       })
     }
   }

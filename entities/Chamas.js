@@ -13,7 +13,7 @@ export class Chamas {
           rotate(),
           state("lancar", ["lancar", "rotate", "fall"]),
           offscreen(),
-          "chamas",
+          "chamas-jogador",
         ])
       )
     }

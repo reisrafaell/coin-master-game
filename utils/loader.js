@@ -37,8 +37,8 @@ export const load = {
           to: 35,
           loop: true,
         },
-        "jump-up": 2,
-        "jump-down": 19,
+        "jump-up": 28,
+        "jump-down": 29,
       },
     })
     loadSprite("ponte", "./assets/Ponte.png")
