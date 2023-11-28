@@ -161,4 +161,4 @@ const scenes = {
 for (const key in scenes) {
   scene(key, scenes[key]);
 }
-go(2);
+go("menu");
