@@ -1,9 +1,9 @@
 export class Level {
   desenharOndas(type, anim) {
-    let offset = -100
-    for (let i = 0; i < 21; i++) {
-      add([sprite(type, { anim }), pos(offset, 600), scale(4), fixed()])
-      offset += 64
+    let offset = -80;
+    for (let i = 0; i < 25; i++) {
+      add([sprite(type, { anim }), pos(offset, 600), scale(4), fixed()]);
+      offset += 64;
     }
   }
 
@@ -12,19 +12,19 @@ export class Level {
       tileWidth: 16,
       tileHeight: 12,
       tiles: mappings,
-    }
+    };
 
-    this.map = []
+    this.map = [];
     for (const layerLayout of levelLayout) {
-      this.map.push(addLevel(layerLayout, layerSettings))
+      this.map.push(addLevel(layerLayout, layerSettings));
     }
 
     for (const layer of this.map) {
-      layer.use(scale(4))
+      layer.use(scale(4));
     }
   }
 
   desenharFundo(bgSpriteName) {
-    add([sprite(bgSpriteName), fixed(), scale(1)])
+    add([sprite(bgSpriteName), fixed(), scale(1)]);
   }
 }
