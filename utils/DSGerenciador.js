@@ -159,7 +159,7 @@ class DS {
 
   exibirTelaDeFimDeJogo() {
     cmSoundManager.pauseAllSounds();
-    add([rect(window.innerWidth, window.innerHeight), color(0, 0, 0)]);
+    add([rect(1280, 720), color(0, 0, 0)]);
     add([
       text("Fim de Jogo!", { size: 50, font: "Round" }),
       area(),
@@ -180,7 +180,7 @@ class DS {
 
   telaFimDeJogo() {
     cmSoundManager.pauseAllSounds();
-    add([rect(window.innerWidth, window.innerHeight), color(0, 0, 0)]);
+    add([rect(1280, 720), color(0, 0, 0)]);
     add([
       text("Voce ganhou! Obrigado por jogar.", { size: 50, font: "Round" }),
       area(),

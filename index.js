@@ -16,8 +16,8 @@ import { load } from "./utils/loader.js";
 import { cmSoundManager } from "./utils/CMSoundManager.js";
 
 kaboom({
-  width: window.innerWidth,
-  height: window.innerHeight,
+  width: 1280,
+  height: 720,
   letterbox: true,
   debug: false,
 });
